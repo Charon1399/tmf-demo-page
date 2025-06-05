@@ -1,12 +1,11 @@
 .container-R_-_IWAS {
-  padding: 16px;
+  padding: 16px 0;
   height: calc(100vh - 120px);
 }
 .container-R_-_IWAS .card-KZoLFapF {
   padding: 12px;
   background: white;
   border-radius: 8px;
-  border: 1px solid #ddd;
   margin-bottom: 8px;
   display: flex;
   justify-content: space-between;
@@ -42,7 +41,6 @@
   padding: 12px;
   background: white;
   border-radius: 8px;
-  border: 1px solid #ddd;
   margin-bottom: 8px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -101,7 +99,6 @@
   padding: 12px;
   background: white;
   border-radius: 8px;
-  border: 1px solid #ddd;
   margin-bottom: 8px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -175,7 +172,6 @@
   padding: 12px;
   background: white;
   border-radius: 8px;
-  border: 1px solid #ddd;
   margin-bottom: 8px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);

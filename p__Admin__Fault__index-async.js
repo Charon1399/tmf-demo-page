@@ -559,7 +559,7 @@ const Fault = ()=>{
             ss++;
             setCurrentStep(ss);
             if (ss >= 4) clearInterval(timerIdU);
-        }, 2000);
+        }, 1000);
         // 清除定时器以防止内存泄漏。
         return ()=>clearInterval(timerIdU);
     }, []);
@@ -575,7 +575,7 @@ const Fault = ()=>{
             }, this),
             /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Steps, {
                 style: {
-                    padding: '0 80px'
+                    padding: '8px 80px'
                 },
                 current: currentStep,
                 percent: 60,
@@ -634,6 +634,9 @@ const Fault = ()=>{
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    style: {
+                                                        marginBottom: '4px'
+                                                    },
                                                     children: "Teminal"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/Admin/Fault/index.js",
@@ -670,6 +673,9 @@ const Fault = ()=>{
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    style: {
+                                                        marginBottom: '4px'
+                                                    },
                                                     children: "Bearer"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/Admin/Fault/index.js",
@@ -696,6 +702,9 @@ const Fault = ()=>{
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+                                    style: {
+                                        marginTop: '24px'
+                                    },
                                     children: [
                                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
@@ -714,6 +723,9 @@ const Fault = ()=>{
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    style: {
+                                                        marginBottom: '4px'
+                                                    },
                                                     children: "SP"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/Admin/Fault/index.js",
@@ -750,6 +762,9 @@ const Fault = ()=>{
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    style: {
+                                                        marginBottom: '4px'
+                                                    },
                                                     children: "Resource Pool"
                                                 }, void 0, false, {
                                                     fileName: "src/pages/Admin/Fault/index.js",
@@ -781,15 +796,7 @@ const Fault = ()=>{
                             fileName: "src/pages/Admin/Fault/index.js",
                             lineNumber: 85,
                             columnNumber: 15
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Skeleton, {
-                            style: {
-                                margin: '30px 0'
-                            }
-                        }, void 0, false, {
-                            fileName: "src/pages/Admin/Fault/index.js",
-                            lineNumber: 115,
-                            columnNumber: 15
-                        }, this)
+                        }, this) : null
                     }, void 0, false, {
                         fileName: "src/pages/Admin/Fault/index.js",
                         lineNumber: 82,
@@ -819,15 +826,7 @@ const Fault = ()=>{
                             fileName: "src/pages/Admin/Fault/index.js",
                             lineNumber: 121,
                             columnNumber: 15
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Skeleton, {
-                            style: {
-                                margin: '30px 0'
-                            }
-                        }, void 0, false, {
-                            fileName: "src/pages/Admin/Fault/index.js",
-                            lineNumber: 125,
-                            columnNumber: 17
-                        }, this)
+                        }, this) : null
                     }, void 0, false, {
                         fileName: "src/pages/Admin/Fault/index.js",
                         lineNumber: 118,
@@ -914,15 +913,7 @@ const Fault = ()=>{
                             fileName: "src/pages/Admin/Fault/index.js",
                             lineNumber: 132,
                             columnNumber: 15
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Skeleton, {
-                            style: {
-                                margin: '30px 0'
-                            }
-                        }, void 0, false, {
-                            fileName: "src/pages/Admin/Fault/index.js",
-                            lineNumber: 141,
-                            columnNumber: 15
-                        }, this)
+                        }, this) : null
                     }, void 0, false, {
                         fileName: "src/pages/Admin/Fault/index.js",
                         lineNumber: 129,
@@ -1010,15 +1001,7 @@ const Fault = ()=>{
                             fileName: "src/pages/Admin/Fault/index.js",
                             lineNumber: 148,
                             columnNumber: 15
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Skeleton, {
-                            style: {
-                                margin: '30px 0'
-                            }
-                        }, void 0, false, {
-                            fileName: "src/pages/Admin/Fault/index.js",
-                            lineNumber: 167,
-                            columnNumber: 15
-                        }, this)
+                        }, this) : null
                     }, void 0, false, {
                         fileName: "src/pages/Admin/Fault/index.js",
                         lineNumber: 145,
@@ -1152,7 +1135,7 @@ const Overview = ({ getFaultState })=>{
         // 创建一个新的定时器，在每一秒钟执行一次函数来更新时间状态。
         const timerId = setTimeout(()=>{
             setIsModalOpen(true);
-        }, 10000);
+        }, 5000);
         // 清除定时器以防止内存泄漏。
         return ()=>clearTimeout(timerId);
     }, []);
@@ -1161,14 +1144,14 @@ const Overview = ({ getFaultState })=>{
         _antd.message.info('Operation successful, restarting in progress');
         setIsModalOpen(false);
         getFaultState('1');
-        setTimeout(()=>{
-            // 在即将关闭的标签页中
-            window.addEventListener('beforeunload', ()=>{
-                localStorage.setItem(_constants.SCENARIO_STORAGE_KEY, _constants.Scenario.bssMetricRecovered.toString());
-            // channel.postMessage({ type: SCENARIO_STORAGE_KEY, data: Scenario.bssMetricRecovered.toString() });
-            });
-        // window.close();
-        }, 4000); // 4000毫秒等于3秒
+        // 在即将关闭的标签页中
+        window.addEventListener('beforeunload', ()=>{
+            localStorage.setItem(_constants.SCENARIO_STORAGE_KEY, _constants.Scenario.bssMetricRecovered.toString());
+        // channel.postMessage({ type: SCENARIO_STORAGE_KEY, data: Scenario.bssMetricRecovered.toString() });
+        });
+    // setTimeout(() => {
+    //     window.close();
+    // }, 4000); // 4000毫秒等于3秒
     };
     const borderedItems = [
         {
@@ -1179,10 +1162,10 @@ const Overview = ({ getFaultState })=>{
                     style: {
                         color: 'red'
                     },
-                    children: "Controller host 172.17.1.3 is in alarm status （cpu utilization of host hypervisor too high） because some processes consume high CPU"
+                    children: "Controller host 172.17.1.3 is in alarm status (cpu utilization of host hypervisor too high) because some processes consume high CPU"
                 }, void 0, false, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 66,
+                    lineNumber: 63,
                     columnNumber: 21
                 }, this)
             }, void 0, false),
@@ -1203,10 +1186,10 @@ const Overview = ({ getFaultState })=>{
                         style: {
                             marginRight: '5px'
                         },
-                        children: "Restart this process can fix this issue."
+                        children: "Restart this process can fix this issue. "
                     }, void 0, false, {
                         fileName: "src/pages/Admin/Fault/overview.js",
-                        lineNumber: 82,
+                        lineNumber: 79,
                         columnNumber: 21
                     }, this),
                     /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
@@ -1216,8 +1199,8 @@ const Overview = ({ getFaultState })=>{
                         children: "accept"
                     }, void 0, false, {
                         fileName: "src/pages/Admin/Fault/overview.js",
-                        lineNumber: 82,
-                        columnNumber: 99
+                        lineNumber: 79,
+                        columnNumber: 100
                     }, this)
                 ]
             }, void 0, true),
@@ -1311,14 +1294,14 @@ const Overview = ({ getFaultState })=>{
                     children: text
                 }, void 0, false, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 165,
+                    lineNumber: 162,
                     columnNumber: 28
                 }, this);
                 else return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                     children: text
                 }, void 0, false, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 167,
+                    lineNumber: 164,
                     columnNumber: 28
                 }, this);
             }
@@ -1447,7 +1430,7 @@ const Overview = ({ getFaultState })=>{
     const data1 = [
         {
             key: '6xx',
-            alarm: 'CPU Utilization of Host Hypervisor too Higt',
+            alarm: 'CPU Utilization of Host Hypervisor too High',
             "Object": "Controller",
             "Name": "host-172.17.1.3",
             Occurrence: current3Time === null || current3Time === void 0 ? void 0 : current3Time.toLocaleString(),
@@ -1457,7 +1440,7 @@ const Overview = ({ getFaultState })=>{
     ];
     // 分页配置
     const paginationConfig = {
-        pageSize: 5,
+        pageSize: 3,
         showSizeChanger: false,
         total: data.length
     };
@@ -1475,10 +1458,10 @@ const Overview = ({ getFaultState })=>{
                     style: {
                         textAlign: 'center'
                     },
-                    children: "Controller host 172.17.1.3 is in alarm status （cpu utilization of host hypervisor too high）"
+                    children: "Controller host 172.17.1.3 is in alarm status (cpu utilization of host hypervisor too high)"
                 }, void 0, false, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 332,
+                    lineNumber: 329,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1487,7 +1470,7 @@ const Overview = ({ getFaultState })=>{
                             style: {
                                 display: 'flex',
                                 alignItems: 'center',
-                                margin: '5px 0'
+                                marginTop: '8px'
                             },
                             children: [
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1500,20 +1483,20 @@ const Overview = ({ getFaultState })=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/Fault/overview.js",
-                                    lineNumber: 336,
+                                    lineNumber: 332,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
                                     children: "Fault Overview"
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/Fault/overview.js",
-                                    lineNumber: 343,
+                                    lineNumber: 339,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 335,
+                            lineNumber: 331,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Descriptions, {
@@ -1523,20 +1506,20 @@ const Overview = ({ getFaultState })=>{
                             items: borderedItems
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 346,
+                            lineNumber: 342,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 333,
+                    lineNumber: 330,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                     style: {
                         display: 'flex',
                         alignItems: 'center',
-                        margin: '5px 0'
+                        marginTop: '8px'
                     },
                     children: [
                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1549,47 +1532,44 @@ const Overview = ({ getFaultState })=>{
                             }
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 354,
+                            lineNumber: 350,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
                             children: "Root Cause Details (some processes consume high CPU)"
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 361,
+                            lineNumber: 357,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 353,
+                    lineNumber: 349,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                     className: _indexlessasmodule.default.container,
                     style: {
-                        height: '400px'
+                        height: '280px',
+                        color: 'rgba(0,0,0,0.45) !important'
                     },
                     children: [
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h4", {
+                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
                             children: "Collect Processer Information With Large Amuount od CPU Usage"
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 364,
+                            lineNumber: 360,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Descriptions, {
-                            items: items
+                            items: items,
+                            style: {
+                                marginBottom: '8px'
+                            }
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 365,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h4", {
-                            children: "TCP Process List"
-                        }, void 0, false, {
-                            fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 366,
+                            lineNumber: 361,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table, {
@@ -1600,13 +1580,13 @@ const Overview = ({ getFaultState })=>{
                             pagination: paginationConfig
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 367,
+                            lineNumber: 362,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 363,
+                    lineNumber: 359,
                     columnNumber: 17
                 }, this),
                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1615,7 +1595,7 @@ const Overview = ({ getFaultState })=>{
                             style: {
                                 display: 'flex',
                                 alignItems: 'center',
-                                margin: '5px 0'
+                                marginTop: '8px'
                             },
                             children: [
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1628,20 +1608,20 @@ const Overview = ({ getFaultState })=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/Fault/overview.js",
-                                    lineNumber: 371,
+                                    lineNumber: 366,
                                     columnNumber: 25
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
                                     children: "Alarms Trigger This Diagnosis"
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/Fault/overview.js",
-                                    lineNumber: 378,
+                                    lineNumber: 373,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 370,
+                            lineNumber: 365,
                             columnNumber: 21
                         }, this),
                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table, {
@@ -1652,24 +1632,24 @@ const Overview = ({ getFaultState })=>{
                             pagination: false
                         }, void 0, false, {
                             fileName: "src/pages/Admin/Fault/overview.js",
-                            lineNumber: 380,
+                            lineNumber: 375,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/Admin/Fault/overview.js",
-                    lineNumber: 369,
+                    lineNumber: 364,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/pages/Admin/Fault/overview.js",
-            lineNumber: 330,
+            lineNumber: 327,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "src/pages/Admin/Fault/overview.js",
-        lineNumber: 315,
+        lineNumber: 312,
         columnNumber: 9
     }, this);
 };
