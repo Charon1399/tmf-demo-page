@@ -209,8 +209,31 @@ const AssuranceAgent = ({ changeMenu })=>{
     // const currentScenario = Number(localStorage.getItem(SCENARIO_STORAGE_KEY));
     const [chartHeight, setChartHeight] = (0, _react.useState)(180);
     const [showSourceLog, setShowSourceLog] = (0, _react.useState)(false);
+    const [minsAxis, setMinsAxis] = (0, _react.useState)([]);
+    const [hoursAxis, setHoursAxis] = (0, _react.useState)([]);
     (0, _react.useEffect)(()=>{
         currentScenario === _constants.Scenario.serverHibernated || _constants.Scenario.temperatureRecovered;
+        // BSS time
+        const now = new Date();
+        if (currentScenario <= _constants.Scenario.serverCanBeHibernated) {
+            setMinsAxis(getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 4, 10, 0)));
+            setHoursAxis(getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 4, 10, 0)));
+        } else if (currentScenario === _constants.Scenario.serverHibernated) {
+            setMinsAxis(getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 4, 35, 0)));
+            setHoursAxis(getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 4, 35, 0)));
+        } else if (currentScenario <= _constants.Scenario.temperatureAbnormal) {
+            setMinsAxis(getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 5, 0, 0)));
+            setHoursAxis(getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 5, 0, 0)));
+        } else if (currentScenario === _constants.Scenario.temperatureRecovered) {
+            setMinsAxis(getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 5, 25, 0)));
+            setHoursAxis(getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 5, 25, 0)));
+        } else if (currentScenario === _constants.Scenario.bssMetricAbnormal) {
+            setMinsAxis(getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 10, 0, 0)));
+            setHoursAxis(getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 10, 0, 0)));
+        } else {
+            setMinsAxis(getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 10, 35, 0)));
+            setHoursAxis(getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 10, 35, 0)));
+        }
     }, [
         currentScenario
     ]);
@@ -265,201 +288,201 @@ const AssuranceAgent = ({ changeMenu })=>{
     let energySaveTempData = [];
     if (currentScenario === _constants.Scenario.temperatureAbnormal) energySaveTempData = [
         {
-            time: getLastHourBy5Minutes()[0],
+            time: minsAxis[0],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[1],
+            time: minsAxis[1],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[2],
+            time: minsAxis[2],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[3],
+            time: minsAxis[3],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[4],
+            time: minsAxis[4],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[5],
+            time: minsAxis[5],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[6],
+            time: minsAxis[6],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[7],
+            time: minsAxis[7],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[8],
+            time: minsAxis[8],
             temperature: 21,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[9],
+            time: minsAxis[9],
             temperature: 20,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[10],
+            time: minsAxis[10],
             temperature: 19,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[11],
+            time: minsAxis[11],
             temperature: 18,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[12],
+            time: minsAxis[12],
             temperature: 18,
             type: 'temperature'
         }
     ];
     else if (currentScenario === _constants.Scenario.temperatureRecovered) energySaveTempData = [
         {
-            time: getLastHourBy5Minutes()[0],
+            time: minsAxis[0],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[1],
+            time: minsAxis[1],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[2],
+            time: minsAxis[2],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[3],
+            time: minsAxis[3],
             temperature: 21,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[4],
+            time: minsAxis[4],
             temperature: 20,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[5],
+            time: minsAxis[5],
             temperature: 19,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[6],
+            time: minsAxis[6],
             temperature: 18,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[7],
+            time: minsAxis[7],
             temperature: 18,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[8],
+            time: minsAxis[8],
             temperature: 19,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[9],
+            time: minsAxis[9],
             temperature: 21,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[10],
+            time: minsAxis[10],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[11],
+            time: minsAxis[11],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[12],
+            time: minsAxis[12],
             temperature: 22,
             type: 'temperature'
         }
     ];
     else energySaveTempData = [
         {
-            time: getLastHourBy5Minutes()[0],
+            time: minsAxis[0],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[1],
+            time: minsAxis[1],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[2],
+            time: minsAxis[2],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[3],
+            time: minsAxis[3],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[4],
+            time: minsAxis[4],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[5],
+            time: minsAxis[5],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[6],
+            time: minsAxis[6],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[7],
+            time: minsAxis[7],
             temperature: 22,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[8],
+            time: minsAxis[8],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[9],
+            time: minsAxis[9],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[10],
+            time: minsAxis[10],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[11],
+            time: minsAxis[11],
             temperature: 23,
             type: 'temperature'
         },
         {
-            time: getLastHourBy5Minutes()[12],
+            time: minsAxis[12],
             temperature: 23,
             type: 'temperature'
         }
@@ -609,209 +632,205 @@ const AssuranceAgent = ({ changeMenu })=>{
             }
         }
     };
-    // BSS time
-    const now = new Date();
-    const bssTimeBy5Mins = getLastHourBy5Minutes(new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0));
-    const bssTimeBy1Hour = getLast12Hours(new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0));
     // BSS metric 1: system latency
     let bssLatencyData = [];
     if (currentScenario === _constants.Scenario.bssMetricAbnormal) bssLatencyData = [
         {
-            time: bssTimeBy5Mins[0],
+            time: minsAxis[0],
             latency: 97,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[1],
+            time: minsAxis[1],
             latency: 102,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[2],
+            time: minsAxis[2],
             latency: 98,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[3],
+            time: minsAxis[3],
             latency: 88,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[4],
+            time: minsAxis[4],
             latency: 96,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[5],
+            time: minsAxis[5],
             latency: 105,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[6],
+            time: minsAxis[6],
             latency: 97,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[7],
+            time: minsAxis[7],
             latency: 120,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[8],
+            time: minsAxis[8],
             latency: 167,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[9],
+            time: minsAxis[9],
             latency: 344,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[10],
+            time: minsAxis[10],
             latency: 566,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[11],
+            time: minsAxis[11],
             latency: 540,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[12],
+            time: minsAxis[12],
             latency: 577,
             type: 'latency'
         }
     ];
     else if (currentScenario === _constants.Scenario.bssMetricRecovered) bssLatencyData = [
         {
-            time: bssTimeBy5Mins[0],
+            time: minsAxis[0],
             latency: 120,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[1],
+            time: minsAxis[1],
             latency: 167,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[2],
+            time: minsAxis[2],
             latency: 344,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[3],
+            time: minsAxis[3],
             latency: 566,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[4],
+            time: minsAxis[4],
             latency: 540,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[5],
+            time: minsAxis[5],
             latency: 544,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[6],
+            time: minsAxis[6],
             latency: 430,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[7],
+            time: minsAxis[7],
             latency: 208,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[8],
+            time: minsAxis[8],
             latency: 120,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[9],
+            time: minsAxis[9],
             latency: 100,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[10],
+            time: minsAxis[10],
             latency: 98,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[11],
+            time: minsAxis[11],
             latency: 105,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[12],
+            time: minsAxis[12],
             latency: 95,
             type: 'latency'
         }
     ];
     else bssLatencyData = [
         {
-            time: bssTimeBy5Mins[0],
+            time: minsAxis[0],
             latency: 100,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[1],
+            time: minsAxis[1],
             latency: 105,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[2],
+            time: minsAxis[2],
             latency: 99,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[3],
+            time: minsAxis[3],
             latency: 95,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[4],
+            time: minsAxis[4],
             latency: 102,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[5],
+            time: minsAxis[5],
             latency: 99,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[6],
+            time: minsAxis[6],
             latency: 80,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[7],
+            time: minsAxis[7],
             latency: 89,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[8],
+            time: minsAxis[8],
             latency: 97,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[9],
+            time: minsAxis[9],
             latency: 102,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[10],
+            time: minsAxis[10],
             latency: 98,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[11],
+            time: minsAxis[11],
             latency: 88,
             type: 'latency'
         },
         {
-            time: bssTimeBy5Mins[12],
+            time: minsAxis[12],
             latency: 96,
             type: 'latency'
         }
@@ -878,55 +897,55 @@ const AssuranceAgent = ({ changeMenu })=>{
     // BSS metric 2: diagnostic accuracy rate
     let bssAccuracyData = [
         {
-            time: `${bssTimeBy1Hour[0]}`,
+            time: `${hoursAxis[0]}`,
             rate: 84
         },
         {
-            time: `${bssTimeBy1Hour[1]}`,
+            time: `${hoursAxis[1]}`,
             rate: 84
         },
         {
-            time: `${bssTimeBy1Hour[2]}`,
+            time: `${hoursAxis[2]}`,
             rate: 83
         },
         {
-            time: `${bssTimeBy1Hour[3]}`,
+            time: `${hoursAxis[3]}`,
             rate: 85
         },
         {
-            time: `${bssTimeBy1Hour[4]}`,
+            time: `${hoursAxis[4]}`,
             rate: 87
         },
         {
-            time: `${bssTimeBy1Hour[5]}`,
+            time: `${hoursAxis[5]}`,
             rate: 86
         },
         {
-            time: `${bssTimeBy1Hour[6]}`,
+            time: `${hoursAxis[6]}`,
             rate: 89
         },
         {
-            time: `${bssTimeBy1Hour[7]}`,
+            time: `${hoursAxis[7]}`,
             rate: 89
         },
         {
-            time: `${bssTimeBy1Hour[8]}`,
+            time: `${hoursAxis[8]}`,
             rate: 90
         },
         {
-            time: `${bssTimeBy1Hour[9]}`,
+            time: `${hoursAxis[9]}`,
             rate: 92
         },
         {
-            time: `${bssTimeBy1Hour[10]}`,
+            time: `${hoursAxis[10]}`,
             rate: 91
         },
         {
-            time: `${bssTimeBy1Hour[11]}`,
+            time: `${hoursAxis[11]}`,
             rate: 92
         },
         {
-            time: `${bssTimeBy1Hour[12]}`,
+            time: `${hoursAxis[12]}`,
             rate: 93
         }
     ];
@@ -959,163 +978,163 @@ const AssuranceAgent = ({ changeMenu })=>{
     let bssTaskNumData = [];
     if (currentScenario === _constants.Scenario.bssMetricAbnormal) bssTaskNumData = [
         {
-            time: `${bssTimeBy5Mins[0]}`,
+            time: `${minsAxis[0]}`,
             number: 7
         },
         {
-            time: `${bssTimeBy5Mins[1]}`,
+            time: `${minsAxis[1]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[2]}`,
+            time: `${minsAxis[2]}`,
             number: 4
         },
         {
-            time: `${bssTimeBy5Mins[3]}`,
+            time: `${minsAxis[3]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[4]}`,
+            time: `${minsAxis[4]}`,
             number: 3
         },
         {
-            time: `${bssTimeBy5Mins[5]}`,
+            time: `${minsAxis[5]}`,
             number: 6
         },
         {
-            time: `${bssTimeBy5Mins[6]}`,
+            time: `${minsAxis[6]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[7]}`,
+            time: `${minsAxis[7]}`,
             number: 9
         },
         {
-            time: `${bssTimeBy5Mins[8]}`,
+            time: `${minsAxis[8]}`,
             number: 15
         },
         {
-            time: `${bssTimeBy5Mins[9]}`,
+            time: `${minsAxis[9]}`,
             number: 22
         },
         {
-            time: `${bssTimeBy5Mins[10]}`,
+            time: `${minsAxis[10]}`,
             number: 26
         },
         {
-            time: `${bssTimeBy5Mins[11]}`,
+            time: `${minsAxis[11]}`,
             number: 32
         },
         {
-            time: `${bssTimeBy5Mins[12]}`,
+            time: `${minsAxis[12]}`,
             number: 35
         }
     ];
     else if (currentScenario === _constants.Scenario.bssMetricRecovered) bssTaskNumData = [
         {
-            time: `${bssTimeBy5Mins[0]}`,
+            time: `${minsAxis[0]}`,
             number: 9
         },
         {
-            time: `${bssTimeBy5Mins[1]}`,
+            time: `${minsAxis[1]}`,
             number: 15
         },
         {
-            time: `${bssTimeBy5Mins[2]}`,
+            time: `${minsAxis[2]}`,
             number: 22
         },
         {
-            time: `${bssTimeBy5Mins[3]}`,
+            time: `${minsAxis[3]}`,
             number: 26
         },
         {
-            time: `${bssTimeBy5Mins[4]}`,
+            time: `${minsAxis[4]}`,
             number: 32
         },
         {
-            time: `${bssTimeBy5Mins[5]}`,
+            time: `${minsAxis[5]}`,
             number: 35
         },
         {
-            time: `${bssTimeBy5Mins[6]}`,
+            time: `${minsAxis[6]}`,
             number: 28
         },
         {
-            time: `${bssTimeBy5Mins[7]}`,
+            time: `${minsAxis[7]}`,
             number: 20
         },
         {
-            time: `${bssTimeBy5Mins[8]}`,
+            time: `${minsAxis[8]}`,
             number: 15
         },
         {
-            time: `${bssTimeBy5Mins[9]}`,
+            time: `${minsAxis[9]}`,
             number: 9
         },
         {
-            time: `${bssTimeBy5Mins[10]}`,
+            time: `${minsAxis[10]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[11]}`,
+            time: `${minsAxis[11]}`,
             number: 4
         },
         {
-            time: `${bssTimeBy5Mins[12]}`,
+            time: `${minsAxis[12]}`,
             number: 6
         }
     ];
     else bssTaskNumData = [
         {
-            time: `${bssTimeBy5Mins[0]}`,
+            time: `${minsAxis[0]}`,
             number: 2
         },
         {
-            time: `${bssTimeBy5Mins[1]}`,
+            time: `${minsAxis[1]}`,
             number: 3
         },
         {
-            time: `${bssTimeBy5Mins[2]}`,
+            time: `${minsAxis[2]}`,
             number: 4
         },
         {
-            time: `${bssTimeBy5Mins[3]}`,
+            time: `${minsAxis[3]}`,
             number: 2
         },
         {
-            time: `${bssTimeBy5Mins[4]}`,
+            time: `${minsAxis[4]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[5]}`,
+            time: `${minsAxis[5]}`,
             number: 1
         },
         {
-            time: `${bssTimeBy5Mins[6]}`,
+            time: `${minsAxis[6]}`,
             number: 3
         },
         {
-            time: `${bssTimeBy5Mins[7]}`,
+            time: `${minsAxis[7]}`,
             number: 6
         },
         {
-            time: `${bssTimeBy5Mins[8]}`,
+            time: `${minsAxis[8]}`,
             number: 7
         },
         {
-            time: `${bssTimeBy5Mins[9]}`,
+            time: `${minsAxis[9]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[10]}`,
+            time: `${minsAxis[10]}`,
             number: 4
         },
         {
-            time: `${bssTimeBy5Mins[11]}`,
+            time: `${minsAxis[11]}`,
             number: 5
         },
         {
-            time: `${bssTimeBy5Mins[12]}`,
+            time: `${minsAxis[12]}`,
             number: 3
         }
     ];
@@ -1151,132 +1170,132 @@ const AssuranceAgent = ({ changeMenu })=>{
     // BSS metric 4: Misdiagnostic rate
     let bssMisdiagnosticData = [
         {
-            time: `${bssTimeBy1Hour[0]}`,
+            time: `${hoursAxis[0]}`,
             rate: 6,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[1]}`,
+            time: `${hoursAxis[1]}`,
             rate: 7,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[2]}`,
+            time: `${hoursAxis[2]}`,
             rate: 6,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[3]}`,
+            time: `${hoursAxis[3]}`,
             rate: 7,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[4]}`,
+            time: `${hoursAxis[4]}`,
             rate: 5,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[5]}`,
+            time: `${hoursAxis[5]}`,
             rate: 5,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[6]}`,
+            time: `${hoursAxis[6]}`,
             rate: 4,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[7]}`,
+            time: `${hoursAxis[7]}`,
             rate: 3,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[8]}`,
+            time: `${hoursAxis[8]}`,
             rate: 3,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[9]}`,
+            time: `${hoursAxis[9]}`,
             rate: 2,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[10]}`,
+            time: `${hoursAxis[10]}`,
             rate: 3,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[11]}`,
+            time: `${hoursAxis[11]}`,
             rate: 1,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[12]}`,
+            time: `${hoursAxis[12]}`,
             rate: 2,
             type: 'false positive'
         },
         {
-            time: `${bssTimeBy1Hour[0]}`,
+            time: `${hoursAxis[0]}`,
             rate: 10,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[1]}`,
+            time: `${hoursAxis[1]}`,
             rate: 9,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[2]}`,
+            time: `${hoursAxis[2]}`,
             rate: 11,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[3]}`,
+            time: `${hoursAxis[3]}`,
             rate: 8,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[4]}`,
+            time: `${hoursAxis[4]}`,
             rate: 8,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[5]}`,
+            time: `${hoursAxis[5]}`,
             rate: 9,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[6]}`,
+            time: `${hoursAxis[6]}`,
             rate: 7,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[7]}`,
+            time: `${hoursAxis[7]}`,
             rate: 8,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[8]}`,
+            time: `${hoursAxis[8]}`,
             rate: 7,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[9]}`,
+            time: `${hoursAxis[9]}`,
             rate: 6,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[10]}`,
+            time: `${hoursAxis[10]}`,
             rate: 6,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[11]}`,
+            time: `${hoursAxis[11]}`,
             rate: 7,
             type: 'false negative'
         },
         {
-            time: `${bssTimeBy1Hour[12]}`,
+            time: `${hoursAxis[12]}`,
             rate: 5,
             type: 'false negative'
         }
@@ -1320,48 +1339,17 @@ const AssuranceAgent = ({ changeMenu })=>{
     return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
         className: _indexlessasmodule.default.container,
         children: [
-            showSourceLog ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.FloatButton, {
-                style: {
-                    right: 64,
-                    bottom: 64
-                },
-                icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.UserOutlined, {}, void 0, false, {
-                    fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                    lineNumber: 527,
-                    columnNumber: 62
-                }, void 0),
-                onClick: ()=>setShowSourceLog(false)
-            }, void 0, false, {
-                fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                lineNumber: 527,
-                columnNumber: 9
-            }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.FloatButton, {
-                style: {
-                    right: 64,
-                    bottom: 64
-                },
-                icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.CodeOutlined, {}, void 0, false, {
-                    fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                    lineNumber: 529,
-                    columnNumber: 62
-                }, void 0),
-                onClick: ()=>setShowSourceLog(true)
-            }, void 0, false, {
-                fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                lineNumber: 529,
-                columnNumber: 9
-            }, this),
             /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h1", {
                 className: _indexlessasmodule.default.title,
                 children: "Assurance Agent"
             }, void 0, false, {
                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                lineNumber: 531,
+                lineNumber: 575,
                 columnNumber: 7
             }, this),
             showSourceLog && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_AssuranceAgentLog.default, {}, void 0, false, {
                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                lineNumber: 532,
+                lineNumber: 576,
                 columnNumber: 25
             }, this),
             !showSourceLog && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
@@ -1397,7 +1385,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                         className: _indexlessasmodule.default.warningIcon
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                        lineNumber: 542,
+                                                        lineNumber: 586,
                                                         columnNumber: 25
                                                     }, void 0),
                                                     /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1408,7 +1396,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                                 children: "Energy savings out of range"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                                lineNumber: 544,
+                                                                lineNumber: 588,
                                                                 columnNumber: 27
                                                             }, void 0),
                                                             /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1416,19 +1404,19 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                                 children: "cause: HVAC temperature issue"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                                lineNumber: 547,
+                                                                lineNumber: 591,
                                                                 columnNumber: 27
                                                             }, void 0)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                        lineNumber: 543,
+                                                        lineNumber: 587,
                                                         columnNumber: 25
                                                     }, void 0)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                lineNumber: 541,
+                                                lineNumber: 585,
                                                 columnNumber: 23
                                             }, void 0),
                                             type: "warning",
@@ -1439,20 +1427,20 @@ const AssuranceAgent = ({ changeMenu })=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                            lineNumber: 539,
+                                            lineNumber: 583,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_charts.Line, {
                                             ...energySaveTempConfig
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                            lineNumber: 561,
+                                            lineNumber: 605,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 537,
+                                    lineNumber: 581,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Card.Grid, {
@@ -1470,7 +1458,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                         className: _indexlessasmodule.default.warningIcon
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                        lineNumber: 568,
+                                                        lineNumber: 612,
                                                         columnNumber: 25
                                                     }, void 0),
                                                     /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1481,7 +1469,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                                 children: "Real-time Alert:"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                                lineNumber: 570,
+                                                                lineNumber: 614,
                                                                 columnNumber: 27
                                                             }, void 0),
                                                             /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1489,19 +1477,19 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                                 children: "Server ID A03 has reached hibernation threshold"
                                                             }, void 0, false, {
                                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                                lineNumber: 573,
+                                                                lineNumber: 617,
                                                                 columnNumber: 27
                                                             }, void 0)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                        lineNumber: 569,
+                                                        lineNumber: 613,
                                                         columnNumber: 25
                                                     }, void 0)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                lineNumber: 567,
+                                                lineNumber: 611,
                                                 columnNumber: 23
                                             }, void 0),
                                             type: "warning",
@@ -1512,31 +1500,31 @@ const AssuranceAgent = ({ changeMenu })=>{
                                             }
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                            lineNumber: 565,
+                                            lineNumber: 609,
                                             columnNumber: 19
                                         }, this),
                                         /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_charts.Pie, {
                                             ...energySaveServerConfig
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                            lineNumber: 587,
+                                            lineNumber: 631,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 563,
+                                    lineNumber: 607,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                            lineNumber: 536,
+                            lineNumber: 580,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                        lineNumber: 535,
+                        lineNumber: 579,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
@@ -1556,7 +1544,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                 className: _indexlessasmodule.default.warningIcon
                                             }, void 0, false, {
                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                lineNumber: 597,
+                                                lineNumber: 641,
                                                 columnNumber: 23
                                             }, void 0),
                                             /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1567,7 +1555,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                         children: "Business Metrics Warning:"
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                        lineNumber: 599,
+                                                        lineNumber: 643,
                                                         columnNumber: 25
                                                     }, void 0),
                                                     /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
@@ -1575,19 +1563,19 @@ const AssuranceAgent = ({ changeMenu })=>{
                                                         children: "High system latency && High backlog of tasks."
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                        lineNumber: 602,
+                                                        lineNumber: 646,
                                                         columnNumber: 25
                                                     }, void 0)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                                lineNumber: 598,
+                                                lineNumber: 642,
                                                 columnNumber: 23
                                             }, void 0)
                                         ]
                                     }, void 0, true, {
                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                        lineNumber: 596,
+                                        lineNumber: 640,
                                         columnNumber: 21
                                     }, void 0),
                                     type: "warning",
@@ -1598,7 +1586,7 @@ const AssuranceAgent = ({ changeMenu })=>{
                                     }
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 594,
+                                    lineNumber: 638,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Card.Grid, {
@@ -1610,12 +1598,12 @@ const AssuranceAgent = ({ changeMenu })=>{
                                         ...bssLatencyConfig
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                        lineNumber: 617,
+                                        lineNumber: 661,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 616,
+                                    lineNumber: 660,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Card.Grid, {
@@ -1627,12 +1615,12 @@ const AssuranceAgent = ({ changeMenu })=>{
                                         ...bssAccuracyConfig
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                        lineNumber: 620,
+                                        lineNumber: 664,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 619,
+                                    lineNumber: 663,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Card.Grid, {
@@ -1644,12 +1632,12 @@ const AssuranceAgent = ({ changeMenu })=>{
                                         ...bssTaskNumConfig
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                        lineNumber: 623,
+                                        lineNumber: 667,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 622,
+                                    lineNumber: 666,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Card.Grid, {
@@ -1661,39 +1649,39 @@ const AssuranceAgent = ({ changeMenu })=>{
                                         ...bssMisdiagnosticConfig
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                        lineNumber: 626,
+                                        lineNumber: 670,
                                         columnNumber: 17
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                                    lineNumber: 625,
+                                    lineNumber: 669,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                            lineNumber: 592,
+                            lineNumber: 636,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                        lineNumber: 591,
+                        lineNumber: 635,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-                lineNumber: 534,
+                lineNumber: 578,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "src/pages/Admin/AssuranceAgent/index.tsx",
-        lineNumber: 525,
+        lineNumber: 569,
         columnNumber: 5
     }, this);
 };
-_s(AssuranceAgent, "B56Ps/wX30hhmRMbhn6PcojG5Xw=");
+_s(AssuranceAgent, "Y545uTWn0t8io6MwxoUcMo5je3M=");
 _c = AssuranceAgent;
 var _default = AssuranceAgent;
 var _c;
@@ -1757,21 +1745,22 @@ const BSSAgentLog = ()=>{
     const startTimestampPrefix = startTimestamp.split(':').slice(0, -1).join(':');
     const initTimestamp = new Date(new Date(startTimestamp).getTime() - 3600000);
     const initTimestampPrefix = initTimestamp.toLocaleString().split(':').slice(0, -1).join(':');
-    const logStr = `${initTimestampPrefix}:32.697 | INFO     | __main__:initialize:25 - Initializing MCPAgent with stdio connection...
-${initTimestampPrefix}:35.010 | INFO     | __main__:register_tool:76 - Registered tool: validate_industry
-${initTimestampPrefix}:35.013 | INFO     | __main__:register_tool:76 - Registered tool: identify_requirements       
-${initTimestampPrefix}:35.015 | INFO     | __main__:register_tool:76 - Registered tool: retrieve_solutions
+    const logStr = `${initTimestampPrefix}:32.697 | INFO     | __main__:initialize:25 - Initializing MCPAgent with sse connection...
+${initTimestampPrefix}:35.010 | INFO     | __main__:register_tool:76 - Registered tool: TMF632_party_management_api
+${initTimestampPrefix}:35.013 | INFO     | __main__:register_tool:76 - Registered tool: TMF921_intent_management_api
+${initTimestampPrefix}:35.015 | INFO     | __main__:register_tool:76 - Registered tool: TMF620_product_catalog_management_api
+${initTimestampPrefix}:35.015 | INFO     | __main__:register_tool:76 - Registered tool: TMF679_product_offering_qualification_management_api
 ${initTimestampPrefix}:35.016 | INFO     | __main__:register_tool:76 - Registered tool: initiate_process
-${initTimestampPrefix}:35.016 | INFO     | __main__:run:159 - Starting BusinessAgent server (stdio mode)      
+${initTimestampPrefix}:35.016 | INFO     | __main__:run:159 - Starting BusinessAgent server (sse mode)      
 INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
-${initTimestampPrefix}:35.032 | INFO     | app.tool.mcp:_initialize_and_list_tools:124 - Connected to server with tools: ['validate_industry', 'identify_requirements', 'retrieve_solutions', 'initiate_process']  
+${initTimestampPrefix}:35.032 | INFO     | app.tool.mcp:_initialize_and_list_tools:124 - Connected to server with tools: ['TMF632_party_management_api', 'TMF921_intent_management_api', 'TMF620_product_catalog_management_api', 'TMF679_product_offering_qualification_management_api', 'initiate_process']  
 INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest
-${initTimestampPrefix}:35.035 | INFO     | app.agent.mcp:_refresh_tools:118 - Added MCP tools: ['validate_industry', 'identify_requirements', 'retrieve_solutions', 'initiate_process']
-${initTimestampPrefix}:35.035 | INFO     | __main__:initialize:36 - Connected to MCP server via stdio
+${initTimestampPrefix}:35.035 | INFO     | app.agent.mcp:_refresh_tools:118 - Added MCP tools: ['TMF632_party_management_api', 'TMF921_intent_management_api', 'TMF620_product_catalog_management_api', 'TMF679_product_offering_qualification_management_api', 'initiate_process']
+${initTimestampPrefix}:35.035 | INFO     | __main__:initialize:36 - Connected to MCP server via sse
 ${startTimestampPrefix}:10.321 | INFO | main:handle_request:56 - Received a request to activate AI medical imaging services for a healthcare industry client
-${startTimestampPrefix}:12.543 | INFO | customer.onboarding:validate_industry:89 - Customer industry validated as healthcare, meeting the eligibility requirements for AI medical imaging services
-${startTimestampPrefix}:15.762 | INFO | product.matching:identify_requirements:124 - Parsed customer requirements: Need to activate AI medical imaging analysis services, including intelligent diagnostic functions for DR/CT/MRI images
-${startTimestampPrefix}:18.921 | INFO | product.catalog:retrieve_solutions:156 - Matched product catalog: Recommended "Medical Imaging AI-Assisted Diagnosis Platform V3.0", including the following core modules:
+${startTimestampPrefix}:12.543 | INFO | customer.onboarding:TMF632_party_management_api:89 - Customer industry validated as healthcare, meeting the eligibility requirements for AI medical imaging services
+${startTimestampPrefix}:15.762 | INFO | product.matching:TMF921_intent_management_api:124 - Parsed customer requirements: Need to activate AI medical imaging analysis services, including intelligent diagnostic functions for DR/CT/MRI images
+${startTimestampPrefix}:18.921 | INFO | product.catalog:TMF620_product_catalog_management_api:156 - Matched product catalog: Recommended "Medical Imaging AI-Assisted Diagnosis Platform V3.0", including the following core modules:
 - Intelligent image segmentation and lesion detection
 - Deep learning assisted diagnosis models (supporting 20+ diseases)
 - Structured report generation system
@@ -1783,7 +1772,7 @@ ${startTimestampPrefix}:25.378 | INFO | customer.onboarding:gather_documents:245
 ✅ Image data samples (with desensitization processing)
 ✅ Technical contact information
 ${startTimestampPrefix}:28.591 | INFO | onboarding.workflow:initiate_process:287 - Activation process initialized, assigned dedicated account manager: AM-20250527-012
-${startTimestampPrefix}:31.756 | INFO | technical对接:system_requirements:321 - Confirmation of preconditions for technical docking:
+${startTimestampPrefix}:31.756 | INFO | technical docking:TMF679_product_offering_qualification_management_api:321 - Confirmation of preconditions for technical docking:
 - Need to provide HIS/PACS system interface documentation
 - Server configuration requirements: GPU cluster (NVIDIA A100*4)
 - Network bandwidth: Dedicated line access ≥100Mbps
@@ -1812,7 +1801,7 @@ ${startTimestampPrefix}:44.556 | INFO | main:complete_initial_response:461 - Ini
         defaultValue: logStr
     }, void 0, false, {
         fileName: "src/pages/Admin/BSSAgent/BSSAgentLog.tsx",
-        lineNumber: 71,
+        lineNumber: 72,
         columnNumber: 9
     }, this);
 };
@@ -2101,32 +2090,26 @@ const MasterAgentLog = ()=>{
     const initTimestampPrefix = initTimestamp.toLocaleString().split(':').slice(0, -1).join(':');
     const next5minTimestamp = new Date(new Date(startTimestamp).getTime() + 300000);
     const next5minTimestampPrefix = next5minTimestamp.toLocaleString().split(':').slice(0, -1).join(':');
-    const logStr = `${initTimestampPrefix}:32.697 | INFO     | __main__:initialize:25 - Initializing MCPAgent with stdio connection...  
+    const logStr = `${initTimestampPrefix}:32.697 | INFO     | __main__:initialize:25 - Initializing MCPAgent with sse connection...  
 ${initTimestampPrefix}:35.010 | INFO     | __main__:register_tool:76 - Registered tool: bash  
 ${initTimestampPrefix}:35.013 | INFO     | __main__:register_tool:76 - Registered tool: design_workflow       
 ${initTimestampPrefix}:35.015 | INFO     | __main__:register_tool:76 - Registered tool: assign_tasks  
 ${initTimestampPrefix}:35.016 | INFO     | __main__:register_tool:76 - Registered tool: track_progress  
-${initTimestampPrefix}:35.016 | INFO     | __main__:run:159 - Starting MasterAgent server (stdio mode)      
+${initTimestampPrefix}:35.016 | INFO     | __main__:run:159 - Starting MasterAgent server (sse mode)      
 INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest  
 ${initTimestampPrefix}:35.032 | INFO     | app.tool.mcp:_initialize_and_list_tools:124 - Connected to with tools: ['bash', 'design_workflow', 'assign_tasks', 'track_progress']  
 INFO:mcp.server.lowlevel.server:Processing request of type ListToolsRequest  
 ${initTimestampPrefix}:35.035 | INFO     | app.agent.mcp:_refresh_tools:118 - Added MCP tools: ['bash', 'design_workflow', 'assign_tasks', 'track_progress']  
-${initTimestampPrefix}:35.035 | INFO     | __main__:initialize:36 - Connected to MCP server via stdio  
+${initTimestampPrefix}:35.035 | INFO     | __main__:initialize:36 - Connected to MCP server via sse  
 
 ${startTimestampPrefix}:10.123 | INFO | MasterAgent:handle_request:101 - Received a request to activate AI medical imaging services for a medical client, starting to design the overall workflow  
 ${startTimestampPrefix}:12.456 | INFO | MasterAgent:analyze_intent:152 - Needs to complete the entire process of requirement matching, resource allocation, and service assurance  
 ${startTimestampPrefix}:15.789 | INFO | MasterAgent:design_workflow:203 - Workflow design:  
                         ┌───────────────────────────────┐  
                         │ Stage 1: Requirement Matching │  
-                        └───────────────┬───────────────┘  
-                                        │  
-                                        ▼  
-                        ┌─────────────────────────────────┐  
-                        │       Computing & Network       │ 
-                        │       Assurance Agent           │
-                        └───┬─────────────────────────┬───┘  
-                            │                         │ 
-                            ▼                         ▼  
+                        └───┬───────────────────────┬───┘  
+                            │                       │ 
+                            ▼                       ▼  
 ┌──────────────────────────────────────┐ ┌─────────────────────────────────────┐  
 │ Product Matching/Document Collection │ │ Resource Monitoring & Early Warning │  
 └──────────────────┬───────────────────┘ └──────────────────┬──────────────────┘  
@@ -2145,33 +2128,39 @@ ${startTimestampPrefix}:15.789 | INFO | MasterAgent:design_workflow:203 - Workfl
                                        ▼  
                 ┌──────────────────────────────────────────────┐  
                 │     Resource Allocation/Service Activation   │  
-                └──────────────────────────────────────────────┘  
+                └──────────────────────┬───────────────────────┘   
+                                       │  
+                                       ▼  
+                          ┌────────────────────────┐  
+                          │  Computing & Network   │  
+                          │  Resource Agent        │  
+                          └────────────────────────┘  
 ${startTimestampPrefix}:19.123 | INFO | MasterAgent:assign_tasks:254 - Task assignment:  
-▶ Assigned to Assurance Agent: full-link resource monitoring and performance assurance (Task ID: ASS-20250527-001)  
 ▶ Assigned to Resource Agent: resource allocation and service deployment activation (Task ID: RES-20250527-001)  
+▶ Assigned to Assurance Agent: full-link resource monitoring and performance assurance (Task ID: ASS-20250527-001)  
 ${startTimestampPrefix}:22.456 | INFO | MasterAgent:track_progress:305 - Subtask progress tracking:  
-◆ Assurance Agent task start time: ${startTimestampPrefix}:23  
-◆ Resource Agent task will start after requirement confirmation  
-${startTimestampPrefix}:36.456 | INFO | MasterAgent:trigger_resource:458 - Triggered Resource Agent task (Task ID: RES-20250527-001)  
-${startTimestampPrefix}:45.789 | INFO | MasterAgent:receive_subtask:509 - Received progress update from Assurance Agent subtask:  
+◆ Resource Agent task start time: ${startTimestampPrefix}:23  
+◆ Assurance Agent task will start after requirement confirmation
+${startTimestampPrefix}:36.456 | INFO | MasterAgent:trigger_resource:458 - Triggered Resource Agent task (Task ID: RES-20250527-001)
+${startTimestampPrefix}:45.789 | INFO | MasterAgent:process_resource:611 - Processed Resource Agent results:  
+▶ Allocated 5G dedicated slice, 4 A100 servers, and exclusive VPC  
+▶ Service deployment and activation completed, total time: 3.5 minutes  
+▶ Resource monitoring alerts enabled  
+${startTimestampPrefix}:46.123 | INFO | receive_subtask:MasterAgent:560 - Received completion notification from Resource Agent subtask (Task ID: RES-20250527-001)  
+${startTimestampPrefix}:48.789 | INFO | MasterAgent:receive_subtask:509 - Received progress update from Assurance Agent subtask:  
 ▶ Completed initialization of RAN/IDC/central cloud/edge computing resource monitoring  
 ▶ Potential risks: nighttime GPU resource peaks, data transmission encryption latency  
 ▶ Assurance measures: created exclusive resource pool, enabled intelligent load balancing  
-${next5minTimestampPrefix}:20.123 | INFOreceive_subtask: | MasterAgent:560 - Received completion notification from Resource Agent subtask (Task ID: RES-20250527-001)  
-${next5minTimestampPrefix}:23.456 | INFO | MasterAgent:process_resource:611 - Processed Resource Agent results:  
-▶ Allocated 5G dedicated slice, 4 A100 servers, and exclusive VPC  
-▶ Service deployment and activation completed, total time: 35 minutes  
-▶ Resource monitoring alerts enabled  
 ${next5minTimestampPrefix}:26.789 | INFO | MasterAgent:summarize_results:662 - Summarized results from each Agent:  
 ============== AI Medical Imaging Service Activation Summary Report ==============  
 ▶ Resource deployment stage: computing/network resources allocated, service activation successful  
 ▶ Assurance monitoring stage: full-link performance monitoring initiated, risk response plans ready  
 ▶ Overall time: 10 minutes (from request to service activation)  
-${next5minTimestampPrefix}:33.456 | INFO | MasterAgent:complete_workflow:764 - AI medical imaging service activation workflow completed  
-┌────────────────────────────────────────────┐  
-│     Agent Task Time Statistics:            │  
-│     - Assurance Agent: 10 minutes          │  
-│     - Resource Agent: 7 minutes            │  
+${next5minTimestampPrefix}:33.456 | INFO | MasterAgent:complete_workflow:764 - AI medical imaging service activation workflow completed
+┌────────────────────────────────────────────┐
+│     Agent Task Time Statistics:            │
+│     - Resource Agent: 7 minutes            │
+│     - Assurance Agent: 10 minutes          │
 └────────────────────────────────────────────┘
 `;
     return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_react1.Editor, {
@@ -3721,11 +3710,11 @@ __mako_require__.d(exports, "default", {
 });
 var _interop_require_default = __mako_require__("@swc/helpers/_/_interop_require_default");
 var _interop_require_wildcard = __mako_require__("@swc/helpers/_/_interop_require_wildcard");
-var _reactrefresh = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
+var _reactrefresh = _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
 var _jsxdevruntime = __mako_require__("node_modules/react/jsx-dev-runtime.js");
-var _react = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
+var _react = _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
 var _antd = __mako_require__("node_modules/antd/es/index.js");
-var _TaskDetaillessasmodule = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskDetail.less?asmodule"));
+var _TaskDetaillessasmodule = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskDetail.less?asmodule"));
 var _icons = __mako_require__("node_modules/@ant-design/icons/es/index.js");
 var _constants = __mako_require__("src/contexts/constants.tsx");
 var prevRefreshReg;
@@ -3748,9 +3737,7 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                     clearInterval(intervalId);
                     newReadyStatus = _constants.ResourceAgentStatus.resourceSolutionGenerated;
                 }
-                // update status stored in localStorage
                 localStorage.setItem(_constants.RESOURCE_AGENT_STATUS_STORAGE_KEY, newReadyStatus.toString());
-                // update status timestamp stored in localStorage
                 let statusTimestamps = new Map();
                 const statusTimestampsStr = localStorage.getItem(_constants.RESOURCE_AGENT_STATUS_TIMESTAMP_STORAGE_KEY);
                 if (statusTimestampsStr && statusTimestampsStr !== '[]') statusTimestamps = new Map(JSON.parse(statusTimestampsStr));
@@ -3758,12 +3745,12 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                 localStorage.setItem(_constants.RESOURCE_AGENT_STATUS_TIMESTAMP_STORAGE_KEY, JSON.stringify(Array.from(statusTimestamps.entries())));
                 return newReadyStatus;
             });
-        }, 2000);
+        }, 1000);
         return ()=>{
             if (intervalId) clearInterval(intervalId);
         };
     }, []);
-    return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+    return (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
         gutter: 24,
         align: "middle",
         justify: "center",
@@ -3771,14 +3758,14 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
             flexWrap: 'nowrap'
         },
         children: [
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+            (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                 style: {
                     padding: 0
                 },
-                children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                children: (0, _jsxdevruntime.jsxDEV)("div", {
                     className: styles.boxLeft,
                     children: [
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.boxTitle,
                             style: readyStatus === _constants.ResourceAgentStatus.bssPlanGenerated ? {} : {
                                 color: '#bfc8b7'
@@ -3789,129 +3776,129 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             lineNumber: 45,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.boxText,
                             style: readyStatus === _constants.ResourceAgentStatus.bssPlanGenerated ? {} : {
                                 color: '#bfc8b7'
                             },
-                            children: readyStatus >= _constants.ResourceAgentStatus.bssPlanGenerated && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+                            children: readyStatus >= _constants.ResourceAgentStatus.bssPlanGenerated && (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Operator Resources​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 49,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 49,
                                         columnNumber: 69
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• 5G Medical Private Network​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 50,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 50,
                                         columnNumber: 75
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• 200TB IDC Encrypted Storage​​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 51,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 51,
                                         columnNumber: 77
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• AI Cloud Resources​​​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 52,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 52,
                                         columnNumber: 69
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Cloud Vendor Services​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 53,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 53,
                                         columnNumber: 72
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Tenc Cloud AI Imaging Platform​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 54,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 54,
                                         columnNumber: 79
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Model Fine - Tuning Service​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 55,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 55,
                                         columnNumber: 76
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Value - Added Services​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 56,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 56,
                                         columnNumber: 73
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Privacy Computing Service​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 57,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 57,
                                         columnNumber: 74
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Energy - Saving Optimization Service​​"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 58,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 58,
                                         columnNumber: 86
@@ -3934,19 +3921,19 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                 lineNumber: 43,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
-                children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+            (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                children: (0, _jsxdevruntime.jsxDEV)("div", {
                     className: styles.flowContainer,
                     children: [
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
+                        (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
                             className: styles.flowArrow
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 66,
                             columnNumber: 21
                         }, this),
-                        readyStatus < _constants.ResourceAgentStatus.resourceMatched ? readyStatus === _constants.ResourceAgentStatus.bssPlanGenerated ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Spin, {
-                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        readyStatus < _constants.ResourceAgentStatus.resourceMatched ? readyStatus === _constants.ResourceAgentStatus.bssPlanGenerated ? (0, _jsxdevruntime.jsxDEV)(_antd.Spin, {
+                            children: (0, _jsxdevruntime.jsxDEV)("div", {
                                 className: styles.flowStepNotReady,
                                 children: "Resource Matching"
                             }, void 0, false, {
@@ -3958,14 +3945,14 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 69,
                             columnNumber: 29
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.flowStepNotReady,
                             children: "Resource Matching"
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 70,
                             columnNumber: 29
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.flowStep,
                             children: "Resource Matching"
                         }, void 0, false, {
@@ -3973,15 +3960,15 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             lineNumber: 71,
                             columnNumber: 25
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
+                        (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
                             className: readyStatus < 1 ? styles.flowArrowNotReady : styles.flowArrow
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 72,
                             columnNumber: 21
                         }, this),
-                        readyStatus < _constants.ResourceAgentStatus.resourceVerificated ? readyStatus === _constants.ResourceAgentStatus.resourceMatched ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Spin, {
-                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        readyStatus < _constants.ResourceAgentStatus.resourceVerificated ? readyStatus === _constants.ResourceAgentStatus.resourceMatched ? (0, _jsxdevruntime.jsxDEV)(_antd.Spin, {
+                            children: (0, _jsxdevruntime.jsxDEV)("div", {
                                 className: styles.flowStepNotReady,
                                 children: "Resource Verification"
                             }, void 0, false, {
@@ -3993,14 +3980,14 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 75,
                             columnNumber: 29
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.flowStepNotReady,
                             children: "Resource Verification"
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 76,
                             columnNumber: 29
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.flowStep,
                             children: "Resource Verification"
                         }, void 0, false, {
@@ -4008,15 +3995,15 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             lineNumber: 77,
                             columnNumber: 25
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
+                        (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
                             className: readyStatus < 2 ? styles.flowArrowNotReady : styles.flowArrow
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 78,
                             columnNumber: 21
                         }, this),
-                        readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? readyStatus === _constants.ResourceAgentStatus.resourceVerificated ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Spin, {
-                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? readyStatus === _constants.ResourceAgentStatus.resourceVerificated ? (0, _jsxdevruntime.jsxDEV)(_antd.Spin, {
+                            children: (0, _jsxdevruntime.jsxDEV)("div", {
                                 className: styles.flowStepNotReady,
                                 children: "Resource Solution Generation"
                             }, void 0, false, {
@@ -4028,14 +4015,14 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 81,
                             columnNumber: 29
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.flowStepNotReady,
                             children: "Resource Solution Generation"
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                             lineNumber: 82,
                             columnNumber: 29
-                        }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.flowStep,
                             children: "Resource Solution Generation"
                         }, void 0, false, {
@@ -4043,7 +4030,7 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             lineNumber: 83,
                             columnNumber: 25
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
+                        (0, _jsxdevruntime.jsxDEV)(_icons.ArrowRightOutlined, {
                             className: readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? styles.flowArrowNotReady : styles.flowArrow
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
@@ -4061,14 +4048,14 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                 lineNumber: 64,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+            (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                 style: {
                     padding: 0
                 },
-                children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                children: (0, _jsxdevruntime.jsxDEV)("div", {
                     className: styles.boxRight,
                     children: [
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.boxTitle,
                             style: readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? {
                                 color: '#bfc8b7'
@@ -4079,249 +4066,249 @@ const TaskDetail = ({ readyStatus, setReadyStatus, styles = _TaskDetaillessasmod
                             lineNumber: 89,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        (0, _jsxdevruntime.jsxDEV)("div", {
                             className: styles.boxText,
                             style: readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? {
                                 color: '#bfc8b7'
                             } : {},
-                            children: readyStatus >= _constants.ResourceAgentStatus.resourceSolutionGenerated && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+                            children: readyStatus >= _constants.ResourceAgentStatus.resourceSolutionGenerated && (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
                                 children: [
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Service Content"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 93,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 93,
                                         columnNumber: 65
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Complete the deployment of the 5G private network and slice configuration within 3 working days, and simultaneously enable the intelligent power - saving function."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 94,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 94,
                                         columnNumber: 211
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: '• Allocate to the AI Cloud Resources of the Qing Shan Green Data Center, a "Green Data Center", and achieve high - speed interconnection via SD - WAN.'
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 95,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 95,
                                         columnNumber: 196
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Complete the docking between the cloud platform and the PACS system within 5 working days."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 96,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 96,
                                         columnNumber: 138
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Provide 7×24 - hour operation and maintenance, with a fault response time of ≤5 minutes."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 97,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 97,
                                         columnNumber: 136
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Provide an energy - efficiency report every quarter to optimize resource utilization."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 98,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 98,
                                         columnNumber: 133
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Performance Requirements"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 99,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 99,
                                         columnNumber: 74
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• 5G Private Network: Latency < 10ms, bandwidth ≥ 1Gbps, packet loss rate < 0.01%."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 100,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 100,
                                         columnNumber: 132
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• AI Cloud: Inference response ≤ 3 seconds, training throughput ≥ 100 images per minute."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 101,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 101,
                                         columnNumber: 134
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Business Availability ≥ 99.9%, data storage reliability ≥ 99.9999%."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 102,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 102,
                                         columnNumber: 115
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Energy - saving Indicator: The overall system energy consumption is reduced by more than 25% compared to traditional solutions."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 103,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 103,
                                         columnNumber: 175
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Application Location"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 104,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 104,
                                         columnNumber: 70
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• No. 88 Keji Road, Qingxiu District, Qingshan City."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 105,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 105,
                                         columnNumber: 98
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("strong", {
+                                    (0, _jsxdevruntime.jsxDEV)("strong", {
                                         children: "Resource Requirements"
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 106,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 106,
                                         columnNumber: 71
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: '• Data Center: The Qing Shan Green Data Center certified as a "Green Data Center"; real - time intelligent energy - saving solution.'
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 107,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 107,
                                         columnNumber: 178
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Cloud Resource Pool: Qing Shan Green Cloud Resource Pool."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 108,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 108,
                                         columnNumber: 105
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Computing Resources: 8 NVIDIA A100 GPUs, 64 - core CPUs, 256GB of memory."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 109,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 109,
                                         columnNumber: 121
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Storage Resources: 200TB IDC Encrypted Storage (SSD solid - state drives)."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 110,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 110,
                                         columnNumber: 122
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Network Technologies: 5G SA standalone networking (including i ntelligent power - saving technology), SD - WAN interconnection."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 111,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 111,
                                         columnNumber: 175
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                                    (0, _jsxdevruntime.jsxDEV)("span", {
                                         children: "• Protection Requirements: Dual - active disaster recovery, daily incremental data backup, and weekly full - volume off - site backup."
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 112,
                                         columnNumber: 33
                                     }, this),
-                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
+                                    (0, _jsxdevruntime.jsxDEV)("br", {}, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskDetail.tsx",
                                         lineNumber: 112,
                                         columnNumber: 180
@@ -4392,14 +4379,14 @@ __mako_require__.d(exports, "default", {
 });
 var _interop_require_default = __mako_require__("@swc/helpers/_/_interop_require_default");
 var _interop_require_wildcard = __mako_require__("@swc/helpers/_/_interop_require_wildcard");
-var _reactrefresh = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
+var _reactrefresh = _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
 var _jsxdevruntime = __mako_require__("node_modules/react/jsx-dev-runtime.js");
-var _TaskWorkflowlessasmodule = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskWorkflow.less?asmodule"));
+var _TaskWorkflowlessasmodule = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskWorkflow.less?asmodule"));
 var _antd = __mako_require__("node_modules/antd/es/index.js");
-var _react = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
+var _react = _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
 var _constants = __mako_require__("src/contexts/constants.tsx");
 var _icons = __mako_require__("node_modules/@ant-design/icons/es/index.js");
-var _main = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/Graph/main.js"));
+var _main = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/Graph/main.js"));
 var prevRefreshReg;
 var prevRefreshSig;
 prevRefreshReg = self.$RefreshReg$;
@@ -4412,7 +4399,6 @@ var _s = $RefreshSig$();
 var _s1 = $RefreshSig$();
 const displayCom = (current_step)=>{
     const desStatus = (step_n)=>{
-        // 小于step等待，等于进行中，大于完成
         if (current_step >= 10) return "finish";
         return current_step < step_n ? 'wait' : current_step === step_n ? "process" : 'finish';
     };
@@ -4420,7 +4406,7 @@ const displayCom = (current_step)=>{
         {
             title: 'Start',
             status: desStatus(6),
-            icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.RightCircleOutlined, {}, void 0, false, {
+            icon: (0, _jsxdevruntime.jsxDEV)(_icons.RightCircleOutlined, {}, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                 lineNumber: 21,
                 columnNumber: 23
@@ -4429,7 +4415,7 @@ const displayCom = (current_step)=>{
         {
             title: 'Create Computing',
             status: desStatus(7),
-            icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ApiOutlined, {}, void 0, false, {
+            icon: (0, _jsxdevruntime.jsxDEV)(_icons.ApiOutlined, {}, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                 lineNumber: 26,
                 columnNumber: 23
@@ -4438,7 +4424,7 @@ const displayCom = (current_step)=>{
         {
             title: 'Create Network',
             status: desStatus(8),
-            icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.OneToOneOutlined, {}, void 0, false, {
+            icon: (0, _jsxdevruntime.jsxDEV)(_icons.OneToOneOutlined, {}, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                 lineNumber: 31,
                 columnNumber: 23
@@ -4447,7 +4433,7 @@ const displayCom = (current_step)=>{
         {
             title: 'Deploy Application',
             status: desStatus(9),
-            icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.AppstoreOutlined, {}, void 0, false, {
+            icon: (0, _jsxdevruntime.jsxDEV)(_icons.AppstoreOutlined, {}, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                 lineNumber: 36,
                 columnNumber: 23
@@ -4456,7 +4442,7 @@ const displayCom = (current_step)=>{
         {
             title: 'Complete',
             status: desStatus(10),
-            icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.InteractionOutlined, {}, void 0, false, {
+            icon: (0, _jsxdevruntime.jsxDEV)(_icons.InteractionOutlined, {}, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                 lineNumber: 41,
                 columnNumber: 23
@@ -4473,7 +4459,6 @@ const DisplayOrch = ({ current_step })=>{
     const [netProgressS, setNetProgress] = (0, _react.useState)(0);
     const [appProgressS, setAppProgress] = (0, _react.useState)(0);
     (0, _react.useEffect)(()=>{
-        // 创建一个新的定时器，在每一秒钟执行一次函数来更新时间状态。
         const timerIdxxx = setInterval(()=>{
             if (current_step === 7) {
                 cfProgress = cfProgress + 30;
@@ -4490,18 +4475,17 @@ const DisplayOrch = ({ current_step })=>{
                 if (appProgress >= 100) appProgress = 100;
                 setAppProgress(appProgress);
             }
-        }, 1000);
-        // 清除定时器以防止内存泄漏。
+        }, 400);
         return ()=>clearInterval(timerIdxxx);
     }, [
         current_step
     ]);
-    return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+    return (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
         children: [
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 className: _TaskWorkflowlessasmodule.default.orch,
                 children: [
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: "Create Computing"
                     }, void 0, false, {
@@ -4509,7 +4493,7 @@ const DisplayOrch = ({ current_step })=>{
                         lineNumber: 89,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: "Node Name: NX Computing"
                     }, void 0, false, {
@@ -4517,11 +4501,11 @@ const DisplayOrch = ({ current_step })=>{
                         lineNumber: 92,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: [
                             "Progress: ",
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Progress, {
+                            (0, _jsxdevruntime.jsxDEV)(_antd.Progress, {
                                 percent: cfProgressS
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
@@ -4540,10 +4524,10 @@ const DisplayOrch = ({ current_step })=>{
                 lineNumber: 88,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 className: _TaskWorkflowlessasmodule.default.orch,
                 children: [
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: "Create Network"
                     }, void 0, false, {
@@ -4551,7 +4535,7 @@ const DisplayOrch = ({ current_step })=>{
                         lineNumber: 100,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: "Path: Beijing-Hebei-Shanxi-Shanxi-Ningxia"
                     }, void 0, false, {
@@ -4559,11 +4543,11 @@ const DisplayOrch = ({ current_step })=>{
                         lineNumber: 103,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: [
                             "Progress: ",
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Progress, {
+                            (0, _jsxdevruntime.jsxDEV)(_antd.Progress, {
                                 percent: netProgressS
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
@@ -4582,10 +4566,10 @@ const DisplayOrch = ({ current_step })=>{
                 lineNumber: 99,
                 columnNumber: 13
             }, this),
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 className: _TaskWorkflowlessasmodule.default.orch,
                 children: [
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: "Deploy Application"
                     }, void 0, false, {
@@ -4593,18 +4577,18 @@ const DisplayOrch = ({ current_step })=>{
                         lineNumber: 111,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8
                     }, void 0, false, {
                         fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                         lineNumber: 114,
                         columnNumber: 17
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 8,
                         children: [
                             "Progress: ",
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Progress, {
+                            (0, _jsxdevruntime.jsxDEV)(_antd.Progress, {
                                 percent: appProgressS
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
@@ -4631,17 +4615,17 @@ _c = DisplayOrch;
 const displayInteractionLogs = (current_step, showDetail)=>{
     const step_map = new Map(JSON.parse(localStorage.getItem(_constants.RESOURCE_AGENT_STATUS_TIMESTAMP_STORAGE_KEY)));
     const one = {
-        title: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        title: (0, _jsxdevruntime.jsxDEV)("div", {
             children: step_map.get('5')
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
             lineNumber: 129,
             columnNumber: 16
         }, this),
-        description: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        description: (0, _jsxdevruntime.jsxDEV)("div", {
             children: [
                 "Start ",
-                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("a", {
+                (0, _jsxdevruntime.jsxDEV)("a", {
                     onClick: ()=>showDetail('5'),
                     children: "Detail"
                 }, void 0, false, {
@@ -4657,14 +4641,14 @@ const displayInteractionLogs = (current_step, showDetail)=>{
         }, this)
     };
     const two = {
-        title: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        title: (0, _jsxdevruntime.jsxDEV)("div", {
             children: step_map.get('7')
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
             lineNumber: 135,
             columnNumber: 16
         }, this),
-        description: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        description: (0, _jsxdevruntime.jsxDEV)("div", {
             children: "Compute Power Activation Begins"
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
@@ -4673,14 +4657,14 @@ const displayInteractionLogs = (current_step, showDetail)=>{
         }, this)
     };
     const thre = {
-        title: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        title: (0, _jsxdevruntime.jsxDEV)("div", {
             children: step_map.get('8')
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
             lineNumber: 143,
             columnNumber: 16
         }, this),
-        description: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        description: (0, _jsxdevruntime.jsxDEV)("div", {
             children: "Network Activation Begins"
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
@@ -4689,14 +4673,14 @@ const displayInteractionLogs = (current_step, showDetail)=>{
         }, this)
     };
     const fo = {
-        title: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        title: (0, _jsxdevruntime.jsxDEV)("div", {
             children: step_map.get('9')
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
             lineNumber: 151,
             columnNumber: 16
         }, this),
-        description: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+        description: (0, _jsxdevruntime.jsxDEV)("div", {
             children: "Application Deployment Begins"
         }, void 0, false, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
@@ -4738,27 +4722,20 @@ const TaskWorkflow = ({ readyStatus, setReadyStatus })=>{
     let initConut = parseInt(localStorage.getItem(_constants.RESOURCE_AGENT_STATUS_STORAGE_KEY));
     const [count, setCount] = (0, _react.useState)(initConut + 1);
     const totalExecutions = 9;
-    // 进来的值从local中拿
     let executionCount = initConut + 1;
     (0, _react.useEffect)(()=>{
-        // 创建一个新的定时器，在每一秒钟执行一次函数来更新时间状态。
         const timerId = setInterval(()=>{
-            // 如果大于9直接不定时走了
             if (executionCount >= totalExecutions) clearInterval(timerId);
             executionCount++;
-            // 放key
             setCount(executionCount);
             localStorage.setItem(_constants.RESOURCE_AGENT_STATUS_STORAGE_KEY, executionCount);
             setReadyStatus(executionCount);
-            // 拿出来时间继续往里放
             let statusTimestamps = new Map();
             const statusTimestampsStr = localStorage.getItem(_constants.RESOURCE_AGENT_STATUS_TIMESTAMP_STORAGE_KEY);
             if (statusTimestampsStr) statusTimestamps = new Map(JSON.parse(statusTimestampsStr));
-            // 往里放值
             statusTimestamps.set(executionCount.toString(), new Date().toLocaleString());
             localStorage.setItem(_constants.RESOURCE_AGENT_STATUS_TIMESTAMP_STORAGE_KEY, JSON.stringify(Array.from(statusTimestamps.entries())));
-        }, 5000);
-        // 清除定时器以防止内存泄漏。
+        }, 2000);
         return ()=>clearInterval(timerId);
     }, []);
     const [isModalVisible, setIsModalVisible] = (0, _react.useState)(false);
@@ -4770,83 +4747,83 @@ const TaskWorkflow = ({ readyStatus, setReadyStatus })=>{
         setIsModalVisible(true);
         setLogF(logflag);
     };
-    return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
-        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+    return (0, _jsxdevruntime.jsxDEV)("div", {
+        children: (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
             children: [
-                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                     span: 12,
                     style: {
                         overflowY: "scroll"
                     },
                     className: _TaskWorkflowlessasmodule.default.container,
                     children: [
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        (0, _jsxdevruntime.jsxDEV)("div", {
                             children: [
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
+                                (0, _jsxdevruntime.jsxDEV)("h3", {
                                     children: "Orchestration Process"
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 237,
+                                    lineNumber: 238,
                                     columnNumber: 25
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Steps, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Steps, {
                                     labelPlacement: "vertical",
                                     size: "small",
                                     current: parseInt(count),
                                     items: displayCom(count)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 238,
+                                    lineNumber: 239,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                            lineNumber: 236,
+                            lineNumber: 237,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Divider, {}, void 0, false, {
-                            fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                            lineNumber: 245,
-                            columnNumber: 21
-                        }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
-                            children: [
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
-                                    children: "Orchestration Progress and Details"
-                                }, void 0, false, {
-                                    fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 247,
-                                    columnNumber: 25
-                                }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(DisplayOrch, {
-                                    current_step: parseInt(count)
-                                }, void 0, false, {
-                                    fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 248,
-                                    columnNumber: 25
-                                }, this)
-                            ]
-                        }, void 0, true, {
+                        (0, _jsxdevruntime.jsxDEV)(_antd.Divider, {}, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
                             lineNumber: 246,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Divider, {}, void 0, false, {
+                        (0, _jsxdevruntime.jsxDEV)("div", {
+                            children: [
+                                (0, _jsxdevruntime.jsxDEV)("h3", {
+                                    children: "Orchestration Progress and Details"
+                                }, void 0, false, {
+                                    fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
+                                    lineNumber: 248,
+                                    columnNumber: 25
+                                }, this),
+                                (0, _jsxdevruntime.jsxDEV)(DisplayOrch, {
+                                    current_step: parseInt(count)
+                                }, void 0, false, {
+                                    fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
+                                    lineNumber: 249,
+                                    columnNumber: 25
+                                }, this)
+                            ]
+                        }, void 0, true, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                            lineNumber: 250,
+                            lineNumber: 247,
                             columnNumber: 21
                         }, this),
-                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                        (0, _jsxdevruntime.jsxDEV)(_antd.Divider, {}, void 0, false, {
+                            fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
+                            lineNumber: 251,
+                            columnNumber: 21
+                        }, this),
+                        (0, _jsxdevruntime.jsxDEV)("div", {
                             children: [
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
+                                (0, _jsxdevruntime.jsxDEV)("h3", {
                                     children: "Interaction Logs"
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 252,
+                                    lineNumber: 253,
                                     columnNumber: 25
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Steps, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Steps, {
                                     progressDot: true,
                                     size: "small",
                                     current: parseInt(count),
@@ -4854,16 +4831,16 @@ const TaskWorkflow = ({ readyStatus, setReadyStatus })=>{
                                     items: displayInteractionLogs(count, handleOK)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 253,
+                                    lineNumber: 254,
                                     columnNumber: 25
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Modal, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Modal, {
                                     title: "log detail",
                                     open: isModalVisible,
                                     footer: null,
                                     onCancel: handleCancel,
                                     width: "80%",
-                                    children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("pre", {
+                                    children: (0, _jsxdevruntime.jsxDEV)("pre", {
                                         children: `"@context": {
     "tmf": "http://www.tmforum.org/ns/tmf921#",
     "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
@@ -5196,64 +5173,64 @@ const TaskWorkflow = ({ readyStatus, setReadyStatus })=>{
 }`
                                     }, void 0, false, {
                                         fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                        lineNumber: 267,
+                                        lineNumber: 268,
                                         columnNumber: 29
                                     }, this)
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                    lineNumber: 260,
+                                    lineNumber: 261,
                                     columnNumber: 25
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                            lineNumber: 251,
+                            lineNumber: 252,
                             columnNumber: 21
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                    lineNumber: 235,
+                    lineNumber: 236,
                     columnNumber: 17
                 }, this),
-                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                     span: 12,
-                    children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                    children: (0, _jsxdevruntime.jsxDEV)("div", {
                         children: [
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h3", {
+                            (0, _jsxdevruntime.jsxDEV)("h3", {
                                 children: "Network and Computing Orchestration Process"
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                lineNumber: 605,
+                                lineNumber: 606,
                                 columnNumber: 25
                             }, this),
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_main.default, {
+                            (0, _jsxdevruntime.jsxDEV)(_main.default, {
                                 current_step: parseInt(count)
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                                lineNumber: 606,
+                                lineNumber: 607,
                                 columnNumber: 25
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                        lineNumber: 604,
+                        lineNumber: 605,
                         columnNumber: 21
                     }, this)
                 }, void 0, false, {
                     fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-                    lineNumber: 603,
+                    lineNumber: 604,
                     columnNumber: 17
                 }, this)
             ]
         }, void 0, true, {
             fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-            lineNumber: 234,
+            lineNumber: 235,
             columnNumber: 13
         }, this)
     }, void 0, false, {
         fileName: "src/pages/Admin/ResourceAgent/TaskWorkflow.js",
-        lineNumber: 233,
+        lineNumber: 234,
         columnNumber: 9
     }, this);
 };
@@ -5751,17 +5728,16 @@ __mako_require__.d(exports, "default", {
 });
 var _interop_require_default = __mako_require__("@swc/helpers/_/_interop_require_default");
 var _interop_require_wildcard = __mako_require__("@swc/helpers/_/_interop_require_wildcard");
-var _reactrefresh = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
+var _reactrefresh = _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
 var _jsxdevruntime = __mako_require__("node_modules/react/jsx-dev-runtime.js");
-var _react = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
-var _indexlessasmodule = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/index.less?asmodule"));
+var _react = _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
+var _indexlessasmodule = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/index.less?asmodule"));
 var _constants = __mako_require__("src/contexts/constants.tsx");
-var _TaskDetail = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskDetail.tsx"));
+var _TaskDetail = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskDetail.tsx"));
 var _constant = __mako_require__("src/pages/Admin/ResourceAgent/constant.tsx");
-var _TaskWorkflow = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskWorkflow.js"));
+var _TaskWorkflow = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/TaskWorkflow.js"));
 var _antd = __mako_require__("node_modules/antd/es/index.js");
-var _icons = __mako_require__("node_modules/@ant-design/icons/es/index.js");
-var _ResourceAgentLog = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/ResourceAgentLog.tsx"));
+var _ResourceAgentLog = _interop_require_default._(__mako_require__("src/pages/Admin/ResourceAgent/ResourceAgentLog.tsx"));
 var prevRefreshReg;
 var prevRefreshSig;
 prevRefreshReg = self.$RefreshReg$;
@@ -5782,17 +5758,14 @@ const ResourceAgent = ({ changeMenu })=>{
     (0, _react.useEffect)(()=>{
         if (_constants.ResourceAgentStatus.bssPlanGenerated <= readyStatus && readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated && tab === _constant.Tab.TaskList) setTimeout(()=>{
             setTab(_constant.Tab.TaskDetail);
-        }, 2000);
+        }, 1000);
         else if (readyStatus === _constants.ResourceAgentStatus.resourceSolutionGenerated && tab === _constant.Tab.TaskDetail) ;
         else if (readyStatus === _constants.ResourceAgentStatus.taskStarted && tab === _constant.Tab.TaskList) setTimeout(()=>{
             setTab(_constant.Tab.TaskWorkflow);
-        }, 3000);
+        }, 1000);
         else if (readyStatus === _constants.ResourceAgentStatus.taskCompleted && tab === _constant.Tab.TaskWorkflow) ;
         else if (readyStatus === _constants.ResourceAgentStatus.taskCompleted && tab === _constant.Tab.TaskList) {
             if (localStorage.getItem(_constants.SCENARIO_STORAGE_KEY) === _constants.Scenario.orderReceived.toString()) localStorage.setItem(_constants.SCENARIO_STORAGE_KEY, _constants.Scenario.resourceCompleted.toString());
-        // setTimeout(() => {
-        //   changeMenu('agents-chat', false);
-        // }, 2000)
         }
     }, [
         readyStatus,
@@ -5808,28 +5781,28 @@ const ResourceAgent = ({ changeMenu })=>{
             taskId: new Date(statusTimestamps.get(_constants.ResourceAgentStatus.bssPlanGenerated.toString())).getTime(),
             taskType: 'create',
             productName: 'AI Medical Model Training',
-            taskStatus: readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+            taskStatus: readyStatus < _constants.ResourceAgentStatus.resourceSolutionGenerated ? (0, _jsxdevruntime.jsxDEV)("div", {
                 className: _indexlessasmodule.default.statusProcessing,
                 children: "CREATING"
             }, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/index.tsx",
                 lineNumber: 61,
                 columnNumber: 11
-            }, this) : readyStatus === _constants.ResourceAgentStatus.resourceSolutionGenerated ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+            }, this) : readyStatus === _constants.ResourceAgentStatus.resourceSolutionGenerated ? (0, _jsxdevruntime.jsxDEV)("div", {
                 className: _indexlessasmodule.default.statusNotStarted,
                 children: "NOT STARTED"
             }, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/index.tsx",
                 lineNumber: 63,
                 columnNumber: 15
-            }, this) : readyStatus < _constants.ResourceAgentStatus.taskCompleted ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+            }, this) : readyStatus < _constants.ResourceAgentStatus.taskCompleted ? (0, _jsxdevruntime.jsxDEV)("div", {
                 className: _indexlessasmodule.default.statusProcessing,
                 children: "PROCESSING"
             }, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/index.tsx",
                 lineNumber: 65,
                 columnNumber: 17
-            }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+            }, this) : (0, _jsxdevruntime.jsxDEV)("div", {
                 className: _indexlessasmodule.default.statusCompleted,
                 children: "COMPLETED"
             }, void 0, false, {
@@ -5842,9 +5815,9 @@ const ResourceAgent = ({ changeMenu })=>{
         }
     ];
     const actionColumn = ()=>{
-        return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+        return (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
             children: [
-                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
+                (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
                     type: "link",
                     onClick: ()=>setTab(_constant.Tab.TaskDetail),
                     className: _indexlessasmodule.default.actionButton,
@@ -5854,7 +5827,7 @@ const ResourceAgent = ({ changeMenu })=>{
                     lineNumber: 74,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
+                (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
                     type: "link",
                     onClick: ()=>{
                         setReadyStatus(_constants.ResourceAgentStatus.taskStarted);
@@ -5873,7 +5846,7 @@ const ResourceAgent = ({ changeMenu })=>{
                     lineNumber: 75,
                     columnNumber: 9
                 }, this),
-                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
+                (0, _jsxdevruntime.jsxDEV)(_antd.Button, {
                     type: "link",
                     onClick: ()=>setTab(_constant.Tab.TaskWorkflow),
                     disabled: readyStatus !== _constants.ResourceAgentStatus.taskStarted,
@@ -5887,41 +5860,10 @@ const ResourceAgent = ({ changeMenu })=>{
             ]
         }, void 0, true);
     };
-    return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+    return (0, _jsxdevruntime.jsxDEV)("div", {
         className: _indexlessasmodule.default.container,
         children: [
-            showSourceLog ? /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.FloatButton, {
-                style: {
-                    right: 64,
-                    bottom: 64
-                },
-                icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.UserOutlined, {}, void 0, false, {
-                    fileName: "src/pages/Admin/ResourceAgent/index.tsx",
-                    lineNumber: 108,
-                    columnNumber: 62
-                }, void 0),
-                onClick: ()=>setShowSourceLog(false)
-            }, void 0, false, {
-                fileName: "src/pages/Admin/ResourceAgent/index.tsx",
-                lineNumber: 108,
-                columnNumber: 9
-            }, this) : /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.FloatButton, {
-                style: {
-                    right: 64,
-                    bottom: 64
-                },
-                icon: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.CodeOutlined, {}, void 0, false, {
-                    fileName: "src/pages/Admin/ResourceAgent/index.tsx",
-                    lineNumber: 110,
-                    columnNumber: 62
-                }, void 0),
-                onClick: ()=>setShowSourceLog(true)
-            }, void 0, false, {
-                fileName: "src/pages/Admin/ResourceAgent/index.tsx",
-                lineNumber: 110,
-                columnNumber: 9
-            }, this),
-            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("h1", {
+            (0, _jsxdevruntime.jsxDEV)("h1", {
                 className: _indexlessasmodule.default.title,
                 children: "Resource Agent"
             }, void 0, false, {
@@ -5929,16 +5871,16 @@ const ResourceAgent = ({ changeMenu })=>{
                 lineNumber: 112,
                 columnNumber: 7
             }, this),
-            showSourceLog && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_ResourceAgentLog.default, {}, void 0, false, {
+            showSourceLog && (0, _jsxdevruntime.jsxDEV)(_ResourceAgentLog.default, {}, void 0, false, {
                 fileName: "src/pages/Admin/ResourceAgent/index.tsx",
                 lineNumber: 113,
                 columnNumber: 25
             }, this),
-            !showSourceLog && tab === _constant.Tab.TaskList && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+            !showSourceLog && tab === _constant.Tab.TaskList && (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
                 children: [
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                    (0, _jsxdevruntime.jsxDEV)("div", {
                         className: _indexlessasmodule.default.breadcrumb,
-                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                        children: (0, _jsxdevruntime.jsxDEV)("span", {
                             children: "Task List"
                         }, void 0, false, {
                             fileName: "src/pages/Admin/ResourceAgent/index.tsx",
@@ -5950,13 +5892,13 @@ const ResourceAgent = ({ changeMenu })=>{
                         lineNumber: 116,
                         columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                    (0, _jsxdevruntime.jsxDEV)("div", {
                         className: _indexlessasmodule.default.innerContainer,
-                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table, {
+                        children: (0, _jsxdevruntime.jsxDEV)(_antd.Table, {
                             className: _indexlessasmodule.default.table,
                             dataSource: readyStatus >= _constants.ResourceAgentStatus.bssPlanGenerated ? tableData : [],
                             children: [
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "NO.",
                                     dataIndex: "no"
                                 }, "no", false, {
@@ -5964,7 +5906,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 121,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Task ID",
                                     dataIndex: "taskId"
                                 }, "taskId", false, {
@@ -5972,7 +5914,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 122,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Task Type",
                                     dataIndex: "taskType"
                                 }, "taskType", false, {
@@ -5980,7 +5922,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 123,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Product Name",
                                     dataIndex: "productName"
                                 }, "productName", false, {
@@ -5988,7 +5930,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 124,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Task Status",
                                     dataIndex: "taskStatus"
                                 }, "taskStatus", false, {
@@ -5996,7 +5938,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 125,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Creation Time",
                                     dataIndex: "creationTime"
                                 }, "creationTime", false, {
@@ -6004,7 +5946,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 126,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Completion Time",
                                     dataIndex: "completionTime"
                                 }, "completionTime", false, {
@@ -6012,7 +5954,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                     lineNumber: 127,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
+                                (0, _jsxdevruntime.jsxDEV)(_antd.Table.Column, {
                                     title: "Action",
                                     render: ()=>actionColumn()
                                 }, "action", false, {
@@ -6033,12 +5975,12 @@ const ResourceAgent = ({ changeMenu })=>{
                     }, this)
                 ]
             }, void 0, true),
-            !showSourceLog && tab === _constant.Tab.TaskDetail && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+            !showSourceLog && tab === _constant.Tab.TaskDetail && (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
                 children: [
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                    (0, _jsxdevruntime.jsxDEV)("div", {
                         className: _indexlessasmodule.default.breadcrumb,
                         children: [
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("a", {
+                            (0, _jsxdevruntime.jsxDEV)("a", {
                                 onClick: ()=>setTab(_constant.Tab.TaskList),
                                 children: "Task List"
                             }, void 0, false, {
@@ -6046,7 +5988,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                 lineNumber: 137,
                                 columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                            (0, _jsxdevruntime.jsxDEV)("span", {
                                 children: " \\ Task Detail"
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/index.tsx",
@@ -6059,9 +6001,9 @@ const ResourceAgent = ({ changeMenu })=>{
                         lineNumber: 136,
                         columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                    (0, _jsxdevruntime.jsxDEV)("div", {
                         className: _indexlessasmodule.default.innerContainer,
-                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_TaskDetail.default, {
+                        children: (0, _jsxdevruntime.jsxDEV)(_TaskDetail.default, {
                             readyStatus: readyStatus,
                             setReadyStatus: setReadyStatus
                         }, void 0, false, {
@@ -6076,12 +6018,12 @@ const ResourceAgent = ({ changeMenu })=>{
                     }, this)
                 ]
             }, void 0, true),
-            !showSourceLog && tab === _constant.Tab.TaskWorkflow && /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
+            !showSourceLog && tab === _constant.Tab.TaskWorkflow && (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {
                 children: [
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
+                    (0, _jsxdevruntime.jsxDEV)("div", {
                         className: _indexlessasmodule.default.breadcrumb,
                         children: [
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("a", {
+                            (0, _jsxdevruntime.jsxDEV)("a", {
                                 onClick: ()=>setTab(_constant.Tab.TaskList),
                                 children: "Task List"
                             }, void 0, false, {
@@ -6089,7 +6031,7 @@ const ResourceAgent = ({ changeMenu })=>{
                                 lineNumber: 148,
                                 columnNumber: 13
                             }, this),
-                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
+                            (0, _jsxdevruntime.jsxDEV)("span", {
                                 children: " \\ Workflow"
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/ResourceAgent/index.tsx",
@@ -6102,8 +6044,8 @@ const ResourceAgent = ({ changeMenu })=>{
                         lineNumber: 147,
                         columnNumber: 11
                     }, this),
-                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
-                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_TaskWorkflow.default, {
+                    (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: (0, _jsxdevruntime.jsxDEV)(_TaskWorkflow.default, {
                             readyStatus: readyStatus,
                             setReadyStatus: setReadyStatus
                         }, void 0, false, {

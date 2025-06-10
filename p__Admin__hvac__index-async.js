@@ -825,17 +825,17 @@ __mako_require__.d(exports, "default", {
 });
 var _interop_require_default = __mako_require__("@swc/helpers/_/_interop_require_default");
 var _interop_require_wildcard = __mako_require__("@swc/helpers/_/_interop_require_wildcard");
-var _reactrefresh = _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
+var _reactrefresh = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react-refresh/runtime.js"));
 var _jsxdevruntime = __mako_require__("node_modules/react/jsx-dev-runtime.js");
-var _react = _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
+var _react = /*#__PURE__*/ _interop_require_wildcard._(__mako_require__("node_modules/react/index.js"));
 var _antd = __mako_require__("node_modules/antd/es/index.js");
-var _main = _interop_require_default._(__mako_require__("src/pages/Admin/hvac/Graph/main.js"));
-var _indexlessasmodule = _interop_require_default._(__mako_require__("src/pages/Admin/hvac/index.less?asmodule"));
+var _main = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/hvac/Graph/main.js"));
+var _indexlessasmodule = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/hvac/index.less?asmodule"));
 var _icons = __mako_require__("node_modules/@ant-design/icons/es/index.js");
 var _umi = __mako_require__("src/.umi/exports.ts");
-var _serverModal = _interop_require_default._(__mako_require__("src/pages/Admin/hvac/serverModal.js"));
+var _serverModal = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/hvac/serverModal.js"));
 var _constants = __mako_require__("src/contexts/constants.tsx");
-var _serverInfo = _interop_require_default._(__mako_require__("src/pages/Admin/hvac/serverInfo.js"));
+var _serverInfo = /*#__PURE__*/ _interop_require_default._(__mako_require__("src/pages/Admin/hvac/serverInfo.js"));
 var prevRefreshReg;
 var prevRefreshSig;
 prevRefreshReg = self.$RefreshReg$;
@@ -849,33 +849,33 @@ var _s1 = $RefreshSig$();
 const displayData = (flag, flagKt, tt, cfProgressS)=>{
     switch(flag){
         case "1":
-            return (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 gutter: 16,
                 children: [
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
                         style: {
                             overflowY: "auto"
                         },
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
                             children: [
-                                (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                                     gutter: 16,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         children: "Total Energy Saved"
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/hvac/index.js",
                                                         lineNumber: 39,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "616.99 kw/h"
                                                     }, void 0, false, {
@@ -894,19 +894,19 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 37,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         children: "Avg. Saving Rate"
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/hvac/index.js",
                                                         lineNumber: 45,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "21.5%"
                                                     }, void 0, false, {
@@ -931,24 +931,24 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 36,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)("div", {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                     className: _indexlessasmodule.default.cardW1,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Device Status"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 82,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Total Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 83,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.blue,
                                             children: "6"
                                         }, void 0, false, {
@@ -956,14 +956,14 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 84,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Running Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 85,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.green,
                                             children: "5"
                                         }, void 0, false, {
@@ -971,14 +971,14 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 86,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Hibernating Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 87,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.gray,
                                             children: "0"
                                         }, void 0, false, {
@@ -986,14 +986,14 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 88,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Shutdown Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 89,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.shutDown,
                                             children: "1"
                                         }, void 0, false, {
@@ -1007,7 +1007,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 81,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)(_serverModal.default, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_serverModal.default, {
                                     flag: flag
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/hvac/index.js",
@@ -1025,11 +1025,11 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                         lineNumber: 17,
                         columnNumber: 11
                     }, this),
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
-                            children: (0, _jsxdevruntime.jsxDEV)(_main.default, {
+                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_main.default, {
                                 flag: flag
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/hvac/index.js",
@@ -1053,29 +1053,29 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                 columnNumber: 9
             }, this);
         case "2":
-            return (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 gutter: 16,
                 children: [
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
                         style: {
                             overflowY: "auto"
                         },
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
                             children: [
-                                (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                                     gutter: 16,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         children: [
                                                             "Total Energy Saved ",
-                                                            (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
+                                                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
                                                                 fileName: "src/pages/Admin/hvac/index.js",
                                                                 lineNumber: 132,
                                                                 columnNumber: 46
@@ -1086,7 +1086,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                         lineNumber: 132,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "619.99 kw/h"
                                                     }, void 0, false, {
@@ -1105,15 +1105,15 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 130,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         children: [
                                                             "Avg. Saving Rate ",
-                                                            (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
+                                                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
                                                                 fileName: "src/pages/Admin/hvac/index.js",
                                                                 lineNumber: 138,
                                                                 columnNumber: 44
@@ -1124,7 +1124,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                         lineNumber: 138,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("span", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "22.5%"
                                                     }, void 0, false, {
@@ -1149,24 +1149,24 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 129,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)("div", {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                     className: _indexlessasmodule.default.cardW1,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Device Status"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 175,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Total Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 176,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.blue,
                                             children: "6"
                                         }, void 0, false, {
@@ -1174,18 +1174,18 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 177,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Running Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 178,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.green,
                                             children: [
                                                 "4 ",
-                                                (0, _jsxdevruntime.jsxDEV)(_icons.ArrowDownOutlined, {}, void 0, false, {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowDownOutlined, {}, void 0, false, {
                                                     fileName: "src/pages/Admin/hvac/index.js",
                                                     lineNumber: 179,
                                                     columnNumber: 49
@@ -1196,18 +1196,18 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 179,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Hibernating Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 180,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.gray,
                                             children: [
                                                 "1 ",
-                                                (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
                                                     fileName: "src/pages/Admin/hvac/index.js",
                                                     lineNumber: 181,
                                                     columnNumber: 48
@@ -1218,14 +1218,14 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 181,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Shutdown Servers"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 182,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.shutDown,
                                             children: "1"
                                         }, void 0, false, {
@@ -1239,7 +1239,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 174,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)(_serverModal.default, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_serverModal.default, {
                                     flag: flag
                                 }, void 0, false, {
                                     fileName: "src/pages/Admin/hvac/index.js",
@@ -1257,11 +1257,11 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                         lineNumber: 110,
                         columnNumber: 11
                     }, this),
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
-                            children: (0, _jsxdevruntime.jsxDEV)(_main.default, {
+                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_main.default, {
                                 flag: flag
                             }, void 0, false, {
                                 fileName: "src/pages/Admin/hvac/index.js",
@@ -1285,33 +1285,33 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                 columnNumber: 9
             }, this);
         case "3":
-            return (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 gutter: 16,
                 children: [
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
                         style: {
                             overflowY: "auto"
                         },
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
                             children: [
-                                (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                                     gutter: 16,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         children: "Total Energy Saved"
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/hvac/index.js",
                                                         lineNumber: 224,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "619.99 kw/h"
                                                     }, void 0, false, {
@@ -1330,19 +1330,19 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 222,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         children: "Avg. Saving Rate"
                                                     }, void 0, false, {
                                                         fileName: "src/pages/Admin/hvac/index.js",
                                                         lineNumber: 230,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "22.5%"
                                                     }, void 0, false, {
@@ -1367,24 +1367,24 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 221,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)("div", {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                     className: _indexlessasmodule.default.cardW,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Device Status"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 267,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Online Devices"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 268,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.green,
                                             children: "3"
                                         }, void 0, false, {
@@ -1392,14 +1392,14 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 269,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Offline Devices"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 270,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.red,
                                             children: "0"
                                         }, void 0, false, {
@@ -1413,26 +1413,26 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 266,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)("div", {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                     className: _indexlessasmodule.default.cardS,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Device Type Summary"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 275,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "AC Units"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 276,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: [
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.green,
                                                     children: "2 / "
                                                 }, void 0, false, {
@@ -1440,7 +1440,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                     lineNumber: 277,
                                                     columnNumber: 22
                                                 }, this),
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.red,
                                                     children: "0"
                                                 }, void 0, false, {
@@ -1454,16 +1454,16 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 277,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Temp/Humidity Sensors"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 278,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: [
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.green,
                                                     children: "1 / "
                                                 }, void 0, false, {
@@ -1471,7 +1471,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                     lineNumber: 279,
                                                     columnNumber: 22
                                                 }, this),
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.red,
                                                     children: "0"
                                                 }, void 0, false, {
@@ -1491,7 +1491,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 274,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)(_serverInfo.default, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_serverInfo.default, {
                                     flag: flag,
                                     flagKt: flagKt,
                                     tt: tt,
@@ -1512,11 +1512,11 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                         lineNumber: 202,
                         columnNumber: 11
                     }, this),
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
-                            children: (0, _jsxdevruntime.jsxDEV)(_main.default, {
+                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_main.default, {
                                 flag: flag,
                                 flagKt: flagKt,
                                 tt: tt,
@@ -1543,29 +1543,29 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                 columnNumber: 9
             }, this);
         case "4":
-            return (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+            return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                 gutter: 16,
                 children: [
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
                         style: {
                             overflowY: "auto"
                         },
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
                             children: [
-                                (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Row, {
                                     gutter: 16,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         children: [
                                                             "Total Energy Saved ",
-                                                            (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
+                                                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
                                                                 fileName: "src/pages/Admin/hvac/index.js",
                                                                 lineNumber: 323,
                                                                 columnNumber: 45
@@ -1576,7 +1576,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                         lineNumber: 323,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "622.99 kw/h"
                                                     }, void 0, false, {
@@ -1595,15 +1595,15 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 321,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                                             span: 12,
-                                            children: (0, _jsxdevruntime.jsxDEV)("div", {
+                                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                 className: _indexlessasmodule.default.card,
                                                 children: [
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         children: [
                                                             "Avg. Saving Rate ",
-                                                            (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
+                                                            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_icons.ArrowUpOutlined, {}, void 0, false, {
                                                                 fileName: "src/pages/Admin/hvac/index.js",
                                                                 lineNumber: 329,
                                                                 columnNumber: 43
@@ -1614,7 +1614,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                         lineNumber: 329,
                                                         columnNumber: 21
                                                     }, this),
-                                                    (0, _jsxdevruntime.jsxDEV)("div", {
+                                                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                                         className: _indexlessasmodule.default.green,
                                                         children: "23.5%"
                                                     }, void 0, false, {
@@ -1639,24 +1639,24 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 320,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)("div", {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                     className: _indexlessasmodule.default.cardW,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Device Status"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 366,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Online Devices"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 367,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.green,
                                             children: "3"
                                         }, void 0, false, {
@@ -1664,14 +1664,14 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 368,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Offline Devices"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 369,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             className: _indexlessasmodule.default.red,
                                             children: "0"
                                         }, void 0, false, {
@@ -1685,26 +1685,26 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 365,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)("div", {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                     className: _indexlessasmodule.default.cardS,
                                     children: [
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Device Type Summary"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 374,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "AC Units"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 375,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: [
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.green,
                                                     children: "2 / "
                                                 }, void 0, false, {
@@ -1712,7 +1712,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                     lineNumber: 376,
                                                     columnNumber: 22
                                                 }, this),
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.red,
                                                     children: "0"
                                                 }, void 0, false, {
@@ -1726,16 +1726,16 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                             lineNumber: 376,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: "Temp/Humidity Sensors"
                                         }, void 0, false, {
                                             fileName: "src/pages/Admin/hvac/index.js",
                                             lineNumber: 377,
                                             columnNumber: 17
                                         }, this),
-                                        (0, _jsxdevruntime.jsxDEV)("div", {
+                                        /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                                             children: [
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.green,
                                                     children: "1 / "
                                                 }, void 0, false, {
@@ -1743,7 +1743,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                                     lineNumber: 378,
                                                     columnNumber: 22
                                                 }, this),
-                                                (0, _jsxdevruntime.jsxDEV)("span", {
+                                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("span", {
                                                     className: _indexlessasmodule.default.red,
                                                     children: "0"
                                                 }, void 0, false, {
@@ -1763,7 +1763,7 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                                     lineNumber: 373,
                                     columnNumber: 15
                                 }, this),
-                                (0, _jsxdevruntime.jsxDEV)(_serverInfo.default, {
+                                /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_serverInfo.default, {
                                     flag: flag,
                                     flagKt: flagKt,
                                     tt: tt
@@ -1783,11 +1783,11 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                         lineNumber: 301,
                         columnNumber: 11
                     }, this),
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Col, {
                         span: 12,
-                        children: (0, _jsxdevruntime.jsxDEV)("div", {
+                        children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                             className: _indexlessasmodule.default.container,
-                            children: (0, _jsxdevruntime.jsxDEV)(_main.default, {
+                            children: /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_main.default, {
                                 flag: flag,
                                 flagKt: flagKt,
                                 tt: tt
@@ -1813,22 +1813,24 @@ const displayData = (flag, flagKt, tt, cfProgressS)=>{
                 columnNumber: 9
             }, this);
         default:
-            return (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {}, void 0, false);
+            return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_jsxdevruntime.Fragment, {}, void 0, false);
     }
 };
 const CurrentTime = ()=>{
     _s();
     const [currentTime, setCurrentTime] = (0, _react.useState)(new Date());
     (0, _react.useEffect)(()=>{
+        // 创建一个新的定时器，在每一秒钟执行一次函数来更新时间状态。
         const timerId = setInterval(()=>{
             setCurrentTime(new Date());
         }, 1000);
+        // 清除定时器以防止内存泄漏。
         return ()=>clearInterval(timerId);
     }, []);
-    return (0, _jsxdevruntime.jsxDEV)("div", {
+    return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
         className: _indexlessasmodule.default.containerTop,
         children: [
-            (0, _jsxdevruntime.jsxDEV)("div", {
+            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                 style: {
                     float: 'left'
                 },
@@ -1841,13 +1843,13 @@ const CurrentTime = ()=>{
                 lineNumber: 418,
                 columnNumber: 7
             }, this),
-            (0, _jsxdevruntime.jsxDEV)("div", {
+            /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
                 style: {
                     float: 'right'
                 },
                 children: [
                     "AI Control： ",
-                    (0, _jsxdevruntime.jsxDEV)(_antd.Switch, {
+                    /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)(_antd.Switch, {
                         defaultChecked: true,
                         size: "small"
                     }, void 0, false, {
@@ -1882,10 +1884,12 @@ const Hvac = ()=>{
     let cfProgress = 0;
     const [cfProgressS, setCfProgress] = (0, _react.useState)(0);
     const [tt, SetTT] = (0, _react.useState)(18);
+    // 空调调节：临时的
     const [flagKt, setFlagKt] = (0, _react.useState)('');
     const display = displayData(flag, flagKt, tt, cfProgressS);
     (0, _react.useEffect)(()=>{
-        let timF = 0;
+        let timF = 0; // 定时器
+        // 创建一个新的定时器，在6秒后将温度调整一下。
         const timerIdxxx = setInterval(()=>{
             timF++;
             if (flag === '3' && timF > 2) {
@@ -1895,32 +1899,42 @@ const Hvac = ()=>{
                 SetTT(cfProgress * 0.04 + 18);
             }
         }, 2000);
+        // 清除定时器以防内存泄漏
         return ()=>{
             clearInterval(timerIdxxx);
         };
-    }, []);
+    }, []); // 空数组依赖项意味着只会在组件挂载和卸载时运行
     (0, _react.useEffect)(()=>{
+        // 设置定时器，在五秒钟后执行回调函数
         let timer1 = setTimeout(()=>{
-            if (flag === "1") setFlag("2");
-        }, 10000);
+            if (flag === "1") setFlag("2"); // 改变标志变量的值
+        }, 10000); // 5000 毫秒等于 5 秒钟
+        // const channel = new BroadcastChannel('tab-communication');
         window.addEventListener('beforeunload', ()=>{
             if (flag === '2' || flag === '1') localStorage.setItem(_constants.SCENARIO_STORAGE_KEY, _constants.Scenario.serverHibernated.toString());
             if (flag === '4' || flag === '3') localStorage.setItem(_constants.SCENARIO_STORAGE_KEY, _constants.Scenario.temperatureRecovered.toString());
         });
+        // let timer3 = setTimeout(() => {
+        //   // 在即将关闭的标签页中
+        //   window.close();
+        // }, 15000);
+        // 12秒flag为4，完成了
         let timer2 = setTimeout(()=>{
-            if (flag === '3') setFlag("4");
+            if (flag === '3') setFlag("4"); // 改变标志变量的值
         }, 12000);
+        // 4秒后改成5， 让空调温度从19改成22
         let timer4 = setTimeout(()=>{
-            if (flag === '3') setFlagKt("5");
+            if (flag === '3') setFlagKt("5"); // 改变标志变量的值
         }, 4000);
+        // 清除定时器以防内存泄漏
         return ()=>{
             clearTimeout(timer1);
             clearTimeout(timer2);
             clearTimeout(timer3);
             clearTimeout(timer4);
         };
-    }, []);
-    return (0, _jsxdevruntime.jsxDEV)("div", {
+    }, []); // 空数组依赖项意味着只会在组件挂载和卸载时运行
+    return /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("div", {
         children: [
             CurrentTime(),
             display

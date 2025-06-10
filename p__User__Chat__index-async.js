@@ -502,7 +502,7 @@ const orderDetailTable = /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("table", {
                         columnNumber: 17
                     }, this),
                     /*#__PURE__*/ (0, _jsxdevruntime.jsxDEV)("th", {
-                        children: "Energy - Saving Features"
+                        children: "Additional Details"
                     }, void 0, false, {
                         fileName: "src/pages/User/Chat/chatScript.tsx",
                         lineNumber: 233,
